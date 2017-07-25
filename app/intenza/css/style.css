@@ -132,6 +132,11 @@ table {
     border-spacing: 0;
 }
 
+.font {
+    font-family: 'Roboto';
+    font-weight: 600;
+}
+
 
 /*
 =======================================================
@@ -154,7 +159,6 @@ reset css
 .navbar-default {
     background-color: #6b767e;
     /*background-color: #ad8541;*/
-    border: none;
 }
 
 .logoImg img {
@@ -165,18 +169,6 @@ reset css
 
 .logoImg {
     padding: .5%;
-}
-
-.logoImg ul {
-    display: inline-flex;
-}
-
-.navbar-fixed-top .logoImg li:before {
-    content: "/";
-    color: #a0a9b0;
-    padding: 0 13px 0 7px;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .navbar-right a {
@@ -196,6 +188,34 @@ a:hover {
     font-weight: 300;
 }
 
+.dropdown-menu li {
+    text-align: center;
+}
+
+.dropdown-menu {
+    margin: 6px 0;
+}
+
+.nav-right {
+    display: inline-block;
+    color: #fff;
+}
+
+.nav-right li {
+    display: inline;
+    padding: 0 25px;
+    cursor: pointer;
+}
+
+.nav-right li:hover {
+    color: #eeeae5;
+}
+
+.navbar-default .navbar-text {
+    color: #777;
+    display: inline-flex;
+}
+
 
 /*
 =======================================================
@@ -206,144 +226,125 @@ a:hover {
 
 /*
 =======================================================
-登入的modal
+主畫面
 =======================================================
  */
 
-.login-facebook {
+.profile {
+    padding: 10%;
+}
+
+.profile h1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.showProfile {
+    font-size: 24px;
+    padding: 5%;
+}
+
+.showProfile p {
+    padding: 3%;
+}
+
+#chart-container {
     width: 100%;
-    padding: 15px 17px;
-    color: #eee;
-    margin: 7px 0;
-    -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-    border-radius: 1px;
+    height: auto;
+}
+.tablePdTop:nth-child(1){
+    padding-top: 70px;
+}
+.tablePdTop h2{
+    font-size: 28px;
+    font-weight: 300;
+    border-bottom: 1px solid #646464;
+    padding: 20px 10px;
+    margin: 20px 0;
+    max-width: 80%;
+}
+#chart-container{
+    max-width: 100%;
+    height: auto;
+}
+/*
+=======================================================
+主畫面
+=======================================================
+ */
+
+
+/*
+=======================================================
+年紀錄畫面
+=======================================================
+ */
+
+.showDate,
+#myList {
+    font-size: 32px;
+    font-weight: 500;
+    padding: 2%;
+}
+
+
+/*
+=======================================================
+年紀錄主畫面
+=======================================================
+ */
+
+
+/*
+=======================================================
+月份清單畫面
+=======================================================
+ */
+
+.showTextMune {
+    font-size: 24px;
+    padding: 2%;
+}
+
+.showDate {
+    display: inline-flex;
+}
+
+
+/*
+=======================================================
+月份清單畫面
+=======================================================
+ */
+
+.table {
+    border: 1px solid #f5f5f5;
+}
+
+.mouseOver {
     cursor: pointer;
+    padding: 2% 7%;
 }
-
-.login-facebook:hover {
-    color: #fff;
-}
-
-.login-facebook {
-    background: #3b5998;
-}
-
-.login-facebook span {
-    font-weight: normal;
-    font-size: 17px;
-    -webkit-text-transform: capitalize;
-    -moz-text-transform: capitalize;
-    -ms-text-transform: capitalize;
-    -o-text-transform: capitalize;
-    text-transform: capitalize;
-}
-
-.login-facebook i {
-    margin-right: 10px;
-    font-size: 17px;
-}
-
-.loginColor {
-    background-color: #6b767e;
-    color: #fff;
-}
-
-.btn.loginColor:focus {
-    background-color: #6b767e;
-    color: #fff;
-    outline: none;
-}
-
-.btn.loginColor:hover {
-    background-color: #fff;
-    color: #6b767e;
-    font-weight: 600;
-    border: 1px solid #6b767e;
-    outline: none;
-}
-
-.or {
-    text-align: center;
-    display: block;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.errorMsg {
-    color: red;
-    padding-top: 10px;
-}
-
-.errorMsg a:hover {
-    color: #337ab7;
-}
-
-
-/*
-=======================================================
-登入的modal
-=======================================================
- */
-
-
-/*
-=======================================================
-註冊的modal
-=======================================================
- */
-
-.signUpMsg {
-    padding: 8px 0 0 5px;
-    color: red;
-}
-
-.signUpDone {
-    font-size: 22px;
-    color: green;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-
-/*
-=======================================================
-註冊的modal
-=======================================================
- */
-
-
-/*
-=======================================================
-首頁圖
-=======================================================
- */
-
-.mainBg {
-    background: url(../images/start_bg_web.jpg) center right fixed no-repeat;
-    -moz-background-size: cover;
-    background-size: cover;
-    background-position: 40% 70%;
-    width: 100%;
-    height: 100%;
-}
-
-
-/*
-=======================================================
-首頁圖
-=======================================================
-*/
 
 @media(max-width: 768px) {
-    .mainBg {
-        background: url(../images/start_bg_web.jpg) center center fixed no-repeat;
-        -moz-background-size: cover;
-        background-position: 23%;
-        background-size: 178% 100%;
-        width: 100%;
-        height: 100%;
+    .showDate,
+    #myList {
+        font-size: 22px;
+        font-weight: 500;
+        padding: 6% 2% 2% 2%;
     }
+    .profile {
+        padding: 20% 10% 10% 10%;
+    }
+    .tablePdTop h2{
+    font-size: 20px;
+    font-weight: 300;
+    border-bottom: 1px solid #646464;
+    padding: 20px 10px;
+    margin: 20px 0;
+    max-width: 100%;
+}
+table{
+    max-width: 100%;
+}
 }

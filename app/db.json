@@ -1,0 +1,79 @@
+//http://35.167.221.25:8080/api/profileGet
+POST KEY MUST HAVE:
+token
+username
+//http://35.167.221.25:8080/api/profileSet 
+POST KEY MUST HAVE:
+token
+username
+
+others key:
+userPassword
+uCountry
+uCity
+uAge
+uSex
+uHeight
+uWeight
+uRegisteredDate
+uImagePhoto
+uCheck
+//http://35.167.221.25:8080/api/checkToken  
+POST KEY MUST HAVE:
+token
+
+回傳{
+    "method": "api.checkToken",
+    "result": "true",
+    "data": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY21jcmVib3JuQGdtYWlsLmNvbSIsImlhdCI6MTQ5OTc1NTg0NSwiZXhwIjoxNDk5ODQyMjQ1fQ.QF_mkX_RRjdxao09j99-3hdqAao6m8ycGz1A6CMToAg",
+        "decode": "cmcreborn@gmail.com"
+    }
+}
+//http://35.167.221.25:8080/api/login2Server   
+
+POST KEY MUST HAVE:
+username
+password
+
+回傳{
+    "method": "login",
+    "data": {
+        "event": "correct",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY21jcmVib3JuQGdtYWlsLmNvbSIsImlhdCI6MTQ5OTc1NzM4MiwiZXhwIjoxNDk5ODQzNzgyfQ.bdcG6ccyWC-wjib6piumcuRhHS2gPywn2c9xCqqyby0"
+    },
+    "result": "true"
+}
+//http://35.167.221.25:8080/signupTemp
+
+POST KEY MUST HAVE:
+username
+password
+
+目前這隻v1版本email註冊方式如下
+post 到上面的link
+username要帶完整email
+password是密碼
+成功後會email到步驟2的email addr 
+進入email收件 點選裡面的link
+
+成功寄發認證用email: {'method':'email send','result':'success'
+}
+反之{'method':'email send fail','error':error,'result':'false'
+}
+重複註冊{'mtehod':'signup','data': {'event':'userName already used'
+    }, 'result':'false'
+}
+資料庫查詢錯誤{'mtehod':'signup','data': {'event':'signupError', 'error':err
+    }, 'result':'false'
+}
+
+email收件後 點選裡面的link後
+成功{'mtehod':'signup','data': {'event':'signup success'
+    }, 'result':'true'
+}
+失敗表示帳號密碼沒有成功插入userData{'mtehod':'signup', 'data': {'event':'sign up fail','error':err
+    }, 'result':'false'
+}
+驗證失效表示太晚點選連結 目前驗證設定1小時{ success: false, message: 'Failed to authenticate token.', error:err
+}

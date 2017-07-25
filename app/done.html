@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>帳號驗證</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        h1 {
+            font-family: '微軟正黑體'
+        }
+
+        #count {
+            color: red;
+        }
+
+        .container {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body onload="closeWindow()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>帳號已成功開啟</h1>
+                <p><span id="count">3</span> 秒後將自動關閉</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeWindow() {
+            var count = document.getElementById('count');
+            var tick = parseInt(count.innerHTML);
+            var timer = setInterval(function () {
+                if (tick) {
+                    count.innerHTML = --tick
+                } else {
+                    clearInterval(timer);
+                    window.close();
+                }
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

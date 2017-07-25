@@ -1,9 +1,10 @@
 <html lang="zh">
+
 <head>
     <meta http-equiv="Content-Type" content="application/x-www-form-urlencoded; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員註冊</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,8 +16,8 @@
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 logoImg">
-                        <!-- <a href="index.html"><img src="images/logo_white.png" alt="首頁logo"></a> -->
+                    <div class="col-md-12 col-xs-12 logoImg">
+                        <a href="index.html"><img src="images/logo_white.png" alt="首頁logo"></a>
                         <ul class="navbar-text navbar-right">
                             <a data-dismiss="modal" data-toggle="modal" href="#login">Login</a>
                             <li><a data-dismiss="modal" data-toggle="modal" href="#signup">Signup</a></li>
@@ -26,7 +27,7 @@
             </div>
         </nav>
     </header>
-<!-- 
+    <!-- 
 ============================================================================
 註冊
 ============================================================================
@@ -42,7 +43,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Email" />
+                                <input type="email" class="form-control" name="username" id="username" placeholder="Email" />
+                                <div class="signUpMsg"></div>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
@@ -55,6 +57,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="date" class="form-control" name="userDate" id="userDate" />
+                                <p class="signUpDone"></p>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -66,7 +69,7 @@
         </form>
     </section>
 
-<!-- 
+    <!-- 
 ============================================================================
 登入
 ============================================================================
@@ -82,7 +85,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="username" id="userLogInName" placeholder="Email" />
+                                <input type="email" class="form-control" name="username" id="userLogInName" placeholder="Email" />
+                                <div class="errorMsg"></div>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" id="userLogInPassword" placeholder="Password" />
@@ -102,12 +106,12 @@
         </form>
     </section>
 
-<!-- 
+    <!-- 
 ============================================================================
 個人資料
 ============================================================================
 -->
-	    <section>
+    <section>
         <form role="form" id="informationForm">
             <div class="modal fade" id="information" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog">
@@ -125,14 +129,15 @@
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control" name="uAge" id="uAge" placeholder="年齡" />
+                                <div class="errorMsg"></div>
                             </div>
                             <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input type="radio" class="form-control" name="uSex" value="M">
+                                <label class="btn btn-primary">
+                                <input type="radio" class="form-control uSex" name="uSex" value="M">
                                 Male
                             </label>
-                            <label class="btn btn-primary">
-                                <input type="radio" class="form-control" name="uSex" value="F">
+                                <label class="btn btn-primary">
+                                <input type="radio" class="form-control uSex" name="uSex" value="F">
                                 Female
                             </label>
                             </div>
@@ -148,24 +153,24 @@
             </div>
         </form>
     </section>
-<!-- 
+    <!-- 
 ============================================================================
 個人資料
 ============================================================================
 -->
 
-<!-- 
+    <!-- 
 ============================================================================
 主畫面的圖片
 ============================================================================
 -->
 
-		<section class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 mainBg">
-				</div>
-			</div>
-		</section>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 mainBg">
+            </div>
+        </div>
+    </section>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
