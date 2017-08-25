@@ -39,3 +39,44 @@ function closeWindow() {
         }
     }, 1000)
 }
+
+$('#resetPW').submit(function () {
+        var getUrl = document.location.search;
+        console.log(getUrl);
+        var arrData = [];
+        if (getUrl.indexOf('?') != -1) {
+            var getData = getUrl.split('?');
+            var showData = getData[1].split('&');
+            console.log(showData);
+            for (var i = 0; i < showData.length; i++) {
+                var dataVal = showData[i].split('=');
+                arrData.push(dataVal[0]);
+                arrData[dataVal[0]] = dataVal[1];
+            }
+            console.log(arrData.token);
+        }
+        var $password = $('#newPassword').val()
+        $
+            .ajax({
+                type: 'POST',
+                url: 'http://35.167.221.25:8080/pcReset',
+                data: {
+                    username: arrData.username,
+                    token: arrData.token,
+                    password: $password
+                }
+            })
+            .done(function (data, textStatus, xhr) {
+                console.log(data);
+                console.log(xhr.status)
+                setTimeout(function() {
+                    window.location.href = 'http://www.ihoin.com/done.html'
+                }, 1000);
+            }).fail(function(xhr){
+                console.log(xhr.status);
+                setTimeout(function() {
+                    window.location.href = 'http://www.ihoin.com/done.html'
+                }, 1000);
+            })
+        return false;
+    })

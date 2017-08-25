@@ -1,3 +1,533 @@
+// function
+for (var i in allMonthData.julData.data) {
+    var monthDoubleDay = allMonthData
+        .julData
+        .data[i]
+        .StartTime
+        .slice(8, 10);
+    switch (monthDoubleDay) {
+        case '01':
+            console.log('01');
+            day1 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '02':
+            console.log('02');
+            day2 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '03':
+            console.log('03');
+            day3 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '04':
+            console.log('04');
+            day4 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '05':
+            console.log('05');
+            day5 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '06':
+            console.log('06');
+            day6 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '07':
+            console.log('07');
+            day7 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '08':
+            console.log('08');
+            day8 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '09':
+            console.log('09');
+            day9 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '10':
+            console.log('10');
+            day10 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '11':
+            console.log('11');
+            day11 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '12':
+            console.log('12');
+            day12 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '13':
+            console.log('13');
+            day13 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '14':
+            console.log('14');
+            day14 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '15':
+            console.log('15');
+            day15 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '16':
+            console.log('16');
+            day16 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '17':
+            console.log('17');
+            day17 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '18':
+            console.log('18');
+            day18 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '19':
+            console.log('19');
+            day19 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '20':
+            console.log('20');
+            day20 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '21':
+            console.log('21');
+            day21 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '22':
+            console.log('22');
+            day22 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '23':
+            console.log('23');
+            day23 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '24':
+            console.log('24');
+            day24 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '25':
+            console.log('25');
+            day25 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '26':
+            console.log('26');
+            day26 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '27':
+            console.log('27');
+            day27 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '28':
+            console.log('28');
+            day28 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '29':
+            console.log('29');
+            day29 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '30':
+            console.log('30');
+            day30 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+        case '31':
+            console.log('31');
+            day31 += parseInt(allMonthData.julData.data[i].distT);
+            break;
+    } // inside switch
+    let getAllDay = julData.data[i].StartTime;
+    let getYear = getAllDay.slice(0, 4);
+    let getMonth = getAllDay.slice(5, 7);
+    let getDate = getAllDay.slice(8, 10);
+    $('.showTextMune').html('<p>' + getMonth + '月份共有 ' + data.data.rows.length + ' 筆運動資料</p>');
+    $('.showMonth').html('<h1>' + getMonth + ' 月份的紀錄</h1>');
+    $('.showDayMessage').append('<tr class="active searchDay"><th>' + getYear + '/' + getMonth + '/' + getDate + '</th><th>' + julData.data[i].distT + ' <span class="font">mile</span> </th><th>' + data.data.rows[i].calT + ' <span class="font">kcal</span> </th><th>' + data.data.rows[i].wattT + ' <span class="font">w</span> </th></tr>');
+    let getdEncoding = julData.data[i];
+    getdEncodingArr[i] = getdEncoding;
+    $('.searchDay')
+        .removeClass('searchDay')
+        .addClass('searchDay' + i);
+} // for
+//抓出使用者點哪一筆的日紀錄
+for (let i in getdEncodingArr) {
+    let getDateForMune = data.data.rows[i].StartTime;
+    let getMonth = getDateForMune.slice(5, 7);
+    let getDate = getDateForMune.slice(8, 10);
+
+    function formatSeconds(value) {
+        var theSecond = parseInt((getdEncodingArr[i].sTimeT) / 2 % 60);
+        var theMinute = parseInt((getdEncodingArr[i].sTimeT) / 2 / 60 % 60);
+        var theHour = parseInt((getdEncodingArr[i].sTimeT) / 2 / 60 / 60);
+        var result = "" + parseInt(theSecond) + "秒";
+        if (theMinute > 0) {
+            result = "" + parseInt(theMinute) + "分" + result;
+        }
+        if (theHour > 0) {
+            result = "" + parseInt(theHour) + "小時" + result;
+        }
+        return result;
+    }
+
+    $('.searchDay' + i)
+        .on('click', function () {
+            $('.showDay').html('<h1></h1><span>' + getMonth + '月' + getDate + '號</span><span>詳細的運動資料</span>');
+            $('.showDayMessage2').html('');
+            $('.showDayMessage3').html('');
+            $('.showDayMessage2').html('<tr><th class="active"></th><th class="active"><span class="font">TOTAL</span></' +
+                    'th></tr><tr><td><span class="font">DISTANCE</span></td><td>' + getdEncodingArr[i].distT + ' <span class="font">km</span></td></tr><tr><td><span class="font">TIME</span></t' +
+                    'd><td>' + formatSeconds(getdEncodingArr[i].sTimeT) + '</td></tr><tr><td><span class="font">CALORIES</span></td><td>' + getdEncodingArr[i].calT + ' <span class="font">kcal</span></td></tr>');
+            $('.showDayMessage3').html('<tr><th class="active"><span class="font">AVG</span></th><th class="active"></th' +
+                    '><th class="active"><span class="font">MAX</span></th></tr><tr><td>' + getdEncodingArr[i].wattAvg + '</td><th><span class="font">WATT</span></th><td>' + getdEncodingArr[i].wattMax + '</td></tr><tr><td>' + getdEncodingArr[i].rpmAvg + '</td><th><span class="font">RPM</span></th><td>' + getdEncodingArr[i].rpmMax + '</td></tr><tr><td>' + getdEncodingArr[i].speedAvg + '</td><th><span class="font">SPEED</span></th><td>' + getdEncodingArr[i].speedMax + '</td></tr><tr><td>' + getdEncodingArr[i].hrAvg + '</td><th><span class="font">HR</span></th><td>' + getdEncodingArr[i].hrMax + '</td></tr>');
+
+        });
+}
+let chartdata1 = {
+    labels: [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+    ],
+    datasets: [
+        {
+            label: 'Mile',
+            backgroundColor: 'rgba(200,200,200,0.75)',
+            borderColor: 'rgba(200,200,200,0.75)',
+            hoverBackgroundColor: 'rgba(200,200,200,1)',
+            hoverBorderColor: 'rgba(200,200,200,1)',
+            animationEasing: "easeOutQuart",
+            data: [
+                day1,
+                day2,
+                day3,
+                day4,
+                day5,
+                day6,
+                day7,
+                day8,
+                day9,
+                day10,
+                day11,
+                day12,
+                day13,
+                day14,
+                day15,
+                day16,
+                day17,
+                day18,
+                day19,
+                day20,
+                day21,
+                day22,
+                day23,
+                day24,
+                day25,
+                day26,
+                day27,
+                day28,
+                day29,
+                day30,
+                day31
+            ]
+        }
+    ]
+};
+let canvas3 = document.getElementById("mycanvasDay");
+let ctx3 = canvas3.getContext("2d");
+let myNewChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: chartdata1
+});
+
+//test function
+function setMonthData(month, getMonthData) {
+    for (var i in getMonthData.month.data) {
+        var monthDoubleDay = getMonthData
+            .month
+            .data[i]
+            .StartTime
+            .slice(8, 10);
+        switch (monthDoubleDay) {
+            case '01':
+                console.log('01');
+                day1 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '02':
+                console.log('02');
+                day2 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '03':
+                console.log('03');
+                day3 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '04':
+                console.log('04');
+                day4 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '05':
+                console.log('05');
+                day5 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '06':
+                console.log('06');
+                day6 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '07':
+                console.log('07');
+                day7 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '08':
+                console.log('08');
+                day8 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '09':
+                console.log('09');
+                day9 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '10':
+                console.log('10');
+                day10 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '11':
+                console.log('11');
+                day11 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '12':
+                console.log('12');
+                day12 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '13':
+                console.log('13');
+                day13 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '14':
+                console.log('14');
+                day14 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '15':
+                console.log('15');
+                day15 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '16':
+                console.log('16');
+                day16 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '17':
+                console.log('17');
+                day17 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '18':
+                console.log('18');
+                day18 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '19':
+                console.log('19');
+                day19 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '20':
+                console.log('20');
+                day20 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '21':
+                console.log('21');
+                day21 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '22':
+                console.log('22');
+                day22 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '23':
+                console.log('23');
+                day23 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '24':
+                console.log('24');
+                day24 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '25':
+                console.log('25');
+                day25 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '26':
+                console.log('26');
+                day26 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '27':
+                console.log('27');
+                day27 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '28':
+                console.log('28');
+                day28 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '29':
+                console.log('29');
+                day29 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '30':
+                console.log('30');
+                day30 += parseInt(getMonthData.month.data[i].distT);
+                break;
+            case '31':
+                console.log('31');
+                day31 += parseInt(getMonthData.month.data[i].distT);
+                break;
+        } // inside switch
+        let getAllDay = month.data[i].StartTime;
+        let getYear = getAllDay.slice(0, 4);
+        let getMonth = getAllDay.slice(5, 7);
+        let getDate = getAllDay.slice(8, 10);
+        $('.showTextMune').html('<p>' + getMonth + '月份共有 ' + data.data.rows.length + ' 筆運動資料</p>');
+        $('.showMonth').html('<h1>' + getMonth + ' 月份的紀錄</h1>');
+        $('.showDayMessage').append('<tr class="active searchDay"><th>' + getYear + '/' + getMonth + '/' + getDate + '</th><th>' + month.data[i].distT + ' <span class="font">mile</span> </th><th>' + data.data.rows[i].calT + ' <span class="font">kcal</span> </th><th>' + data.data.rows[i].wattT + ' <span class="font">w</span> </th></tr>');
+        let getdEncoding = month.data[i];
+        getdEncodingArr[i] = getdEncoding;
+        $('.searchDay')
+            .removeClass('searchDay')
+            .addClass('searchDay' + i);
+    } // for
+    //抓出使用者點哪一筆的日紀錄
+    for (let i in getdEncodingArr) {
+        let getDateForMune = data.data.rows[i].StartTime;
+        let getMonth = getDateForMune.slice(5, 7);
+        let getDate = getDateForMune.slice(8, 10);
+
+        function formatSeconds(value) {
+            var theSecond = parseInt((getdEncodingArr[i].sTimeT) / 2 % 60);
+            var theMinute = parseInt((getdEncodingArr[i].sTimeT) / 2 / 60 % 60);
+            var theHour = parseInt((getdEncodingArr[i].sTimeT) / 2 / 60 / 60);
+            var result = "" + parseInt(theSecond) + "秒";
+            if (theMinute > 0) {
+                result = "" + parseInt(theMinute) + "分" + result;
+            }
+            if (theHour > 0) {
+                result = "" + parseInt(theHour) + "小時" + result;
+            }
+            return result;
+        }
+
+        $('.searchDay' + i)
+            .on('click', function () {
+                $('.showDay').html('<h1></h1><span>' + getMonth + '月' + getDate + '號</span><span>詳細的運動資料</span>');
+                $('.showDayMessage2').html('');
+                $('.showDayMessage3').html('');
+                $('.showDayMessage2').html('<tr><th class="active"></th><th class="active"><span class="font">TOTAL</span></' +
+                        'th></tr><tr><td><span class="font">DISTANCE</span></td><td>' + getdEncodingArr[i].distT + ' <span class="font">km</span></td></tr><tr><td><span class="font">TIME</span></t' +
+                        'd><td>' + formatSeconds(getdEncodingArr[i].sTimeT) + '</td></tr><tr><td><span class="font">CALORIES</span></td><td>' + getdEncodingArr[i].calT + ' <span class="font">kcal</span></td></tr>');
+                $('.showDayMessage3').html('<tr><th class="active"><span class="font">AVG</span></th><th class="active"></th' +
+                        '><th class="active"><span class="font">MAX</span></th></tr><tr><td>' + getdEncodingArr[i].wattAvg + '</td><th><span class="font">WATT</span></th><td>' + getdEncodingArr[i].wattMax + '</td></tr><tr><td>' + getdEncodingArr[i].rpmAvg + '</td><th><span class="font">RPM</span></th><td>' + getdEncodingArr[i].rpmMax + '</td></tr><tr><td>' + getdEncodingArr[i].speedAvg + '</td><th><span class="font">SPEED</span></th><td>' + getdEncodingArr[i].speedMax + '</td></tr><tr><td>' + getdEncodingArr[i].hrAvg + '</td><th><span class="font">HR</span></th><td>' + getdEncodingArr[i].hrMax + '</td></tr>');
+
+            });
+    }
+    let chartJul = {
+        labels: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"
+        ],
+        datasets: [
+            {
+                label: 'Mile',
+                backgroundColor: 'rgba(200,200,200,0.75)',
+                borderColor: 'rgba(200,200,200,0.75)',
+                hoverBackgroundColor: 'rgba(200,200,200,1)',
+                hoverBorderColor: 'rgba(200,200,200,1)',
+                animationEasing: "easeOutQuart",
+                data: [
+                    day1,
+                    day2,
+                    day3,
+                    day4,
+                    day5,
+                    day6,
+                    day7,
+                    day8,
+                    day9,
+                    day10,
+                    day11,
+                    day12,
+                    day13,
+                    day14,
+                    day15,
+                    day16,
+                    day17,
+                    day18,
+                    day19,
+                    day20,
+                    day21,
+                    day22,
+                    day23,
+                    day24,
+                    day25,
+                    day26,
+                    day27,
+                    day28,
+                    day29,
+                    day30,
+                    day31
+                ]
+            }
+        ]
+    };
+    let canvasJul = document.getElementById("mycanvasDay");
+    let ctxJul = canvasJul.getContext("2d");
+    let myNewChartJul = new Chart(ctxJul, {
+        type: 'bar',
+        data: chartJul
+    });
+}
+
 $('#userLogInForm')
     .submit(function () {
         var username = $('#userLogInName').val();

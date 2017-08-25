@@ -107,8 +107,13 @@ section {
 body {
     line-height: 1;
     font-family: 'Roboto', sans-serif;
+    background: url(../images/dimon.jpg) center right fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: 40% 70%;
+    width: 100%;
+    height: 100%;
 }
-
 ol,
 ul {
     list-style: none;
@@ -403,35 +408,14 @@ label {
 輸入個人資料的 modal
 =======================================================
  */
-    /*
-=======================================================
-首頁圖
-=======================================================
- */
-.mainBg {
-    background: url(../images/start_bg_web.jpg) center right fixed no-repeat;
-    -moz-background-size: cover;
-    background-size: cover;
-    background-position: 40% 70%;
-    width: 100%;
-    height: 100%;
-}
 
-.mainBgForCoach {
-    background: url(../images/dimon.jpg) center right fixed no-repeat;
-    -moz-background-size: cover;
-    background-size: cover;
-    background-position: 40% 70%;
-    width: 100%;
-    height: 100%;
-}
 /*
 =======================================================
 首頁圖
 =======================================================
 */
 @media(max-width: 768px) {
-    .mainBg {
+    body {
         background: url(../images/start_bg_web.jpg) center center fixed no-repeat;
         -moz-background-size: cover;
         background-position: 23%;

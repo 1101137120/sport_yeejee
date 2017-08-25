@@ -1,0 +1,538 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Roboto', sans-serif;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* 
+reset css over
+*/
+
+
+/*
+=======================================================
+標頭開始
+=======================================================
+*/
+
+.container {
+    max-width: 1040px;
+    padding: 0 20px;
+}
+
+.navbar-default {
+    background-color: #6b767e;
+    /*background-color: #ad8541;*/
+}
+
+.logoImg img {
+    max-width: 100%;
+    width: 157px;
+    height: 39px;
+}
+
+.logoImg {
+    padding: .5%;
+}
+
+.navbar-right a {
+    color: #fff;
+    margin-left: 10px;
+}
+
+a:focus,
+a:hover {
+    color: #eeeae5;
+    text-decoration: none;
+    outline: none;
+}
+
+.navbar-right {
+    font-size: 18px;
+    line-height: 12px;
+    font-weight: 300;
+}
+
+.dropdown-menu li {
+    text-align: center;
+}
+
+.dropdown-menu {
+    margin: 6px 0;
+}
+
+.nav-right {
+    display: inline-block;
+    color: #fff;
+}
+
+.nav-right li {
+    display: inline;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.nav-right li:hover {
+    color: #eeeae5;
+}
+
+.navbar-default .navbar-text {
+    color: #777;
+    display: inline-flex;
+}
+
+
+/*
+=======================================================
+標頭結束
+=======================================================
+*/
+
+
+/* 
+輸入序號的 modal style
+*/
+
+label {
+    display: inline-block;
+    margin: .5rem 0;
+}
+
+
+/* 
+個人資訊頁面 style
+*/
+
+.profile {
+    padding: 80px 20px;
+}
+
+.profile h1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.showProfile {
+    font-size: 24px;
+    padding: 40px 30px;
+}
+
+.showProfile p {
+    padding: 20px;
+}
+
+
+/* 
+心跳的 style
+*/
+
+.heart-wrapper {
+    z-index: -1;
+    position: absolute;
+    margin: auto;
+    top: 10px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #f33;
+    -webkit-animation: pulse 1.4s infinite;
+    -moz-animation: pulse 1.4s infinite;
+    -o-animation: pulse 1.4s infinite;
+    -ms-animation: pulse 1.4s infinite;
+    animation: pulse 1.4s infinite;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.heart-wrapper:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -50%;
+    background: #f33;
+    border-radius: 50%;
+}
+
+.heart-wrapper:before {
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f33;
+    left: -50%;
+}
+
+@-moz-keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+    }
+    85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+    }
+    97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+    }
+    85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+    }
+    97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+@-o-keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+    }
+    85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+    }
+    97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+    }
+    85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+    }
+    97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+    }
+    100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+
+/* 
+每個運動資訊的 style
+*/
+
+.chartStyle {
+    position: relative;
+}
+
+#aDist {
+    display: inline-block;
+}
+
+#fSpeed {
+    position: absolute !important;
+}
+
+.heart {
+    position: absolute;
+    top: 0;
+    left: 110px;
+}
+
+.heart span {
+    color: #fff;
+}
+
+.userData {
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.2em;
+}
+
+.heart-wrapper {
+    display: none;
+}
+
+h1 {
+    font-size: 28px;
+    border-bottom: 1px solid #656565;
+    padding-bottom: 20px;
+}
+
+.whoInRoom p {
+    padding: 10px;
+}
+
+@media (max-width: 1400px) {
+    #fSpeed {
+        padding-left: 100px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #fSpeed {
+        padding-left: 80px;
+    }
+}
