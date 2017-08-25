@@ -1,0 +1,241 @@
+//http://35.167.221.25:8080/api/profileGet
+POST KEY MUST HAVE:
+token
+username
+//http://35.167.221.25:8080/api/profileSet 
+POST KEY MUST HAVE:
+token
+username
+
+others key:
+userPassword
+uCountry
+uCity
+uAge
+uSex
+uHeight
+uWeight
+uRegisteredDate
+uImagePhoto
+uCheck
+//http://35.167.221.25:8080/api/checkToken  
+POST KEY MUST HAVE:
+token
+
+回傳{
+    "method": "api.checkToken",
+    "result": "true",
+    "data": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY21jcmVib3JuQGdtYWlsLmNvbSIsImlhdCI6MTQ5OTc1NTg0NSwiZXhwIjoxNDk5ODQyMjQ1fQ.QF_mkX_RRjdxao09j99-3hdqAao6m8ycGz1A6CMToAg",
+        "decode": "cmcreborn@gmail.com"
+    }
+}
+//http://35.167.221.25:8080/api/login2Server   
+
+POST KEY MUST HAVE:
+username
+password
+
+回傳{
+    "method": "login",
+    "data": {
+        "event": "correct",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY21jcmVib3JuQGdtYWlsLmNvbSIsImlhdCI6MTQ5OTc1NzM4MiwiZXhwIjoxNDk5ODQzNzgyfQ.bdcG6ccyWC-wjib6piumcuRhHS2gPywn2c9xCqqyby0"
+    },
+    "result": "true"
+}
+//http://35.167.221.25:8080/signupTemp
+
+POST KEY MUST HAVE:
+username
+password
+
+目前這隻v1版本email註冊方式如下
+post 到上面的link
+username要帶完整email
+password是密碼
+成功後會email到步驟2的email addr 
+進入email收件 點選裡面的link
+
+成功寄發認證用email: {'method':'email send','result':'success'
+}
+反之{'method':'email send fail','error':error,'result':'false'
+}
+重複註冊{'mtehod':'signup','data': {'event':'userName already used'
+    }, 'result':'false'
+}
+資料庫查詢錯誤{'mtehod':'signup','data': {'event':'signupError', 'error':err
+    }, 'result':'false'
+}
+
+email收件後 點選裡面的link後
+成功{'mtehod':'signup','data': {'event':'signup success'
+    }, 'result':'true'
+}
+失敗表示帳號密碼沒有成功插入userData{'mtehod':'signup', 'data': {'event':'sign up fail','error':err
+    }, 'result':'false'
+}
+驗證失效表示太晚點選連結 目前驗證設定1小時{ success: false, message: 'Failed to authenticate token.', error:err
+}
+
+======================================================================================================
+
+廠商
+//  http://35.167.221.25:8080
+
+/cpDataSet //註冊
+
+data: {
+    cpAcc: '帳號',
+    cpPassword: '密碼',
+    cpName: '公司名稱',
+    taxID: '統編',
+    cpType: '公司類型',
+    others: '其它'
+}
+
+/cpLogin //登入
+
+data: {
+    cpAcc: '帳號',
+    cpPassword: '密碼'
+}
+
+/api/cpDataGet //公司資訊
+
+data: {
+    cpAcc: '帳號',
+    username: '帳號',
+    cpPassword: '密碼',
+    token: 'token'
+}
+
+/api/cpDeviceDataGet //該公司的所有裝置
+
+data: {
+    cpAcc: '帳號',
+    cpName: '公司名稱',
+    token: 'token',
+    username: '帳號'
+}
+
+/api/cpDeviceStatusGet //公司的所有裝置狀態
+
+data: {
+    sDeviceID: ,
+    token: ,
+    dataNum: ,
+    username: ,
+    cpAcc: 
+}
+
+
+
+socket.io:
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://35.167.221.25:3005');
+  socket.on('onEvent1', function (data){
+    console.log(data);
+    socket.emit('TestEcho',
+    { my: 'data'
+    });
+});
+
+   socket.on('onTestEcho', function (data){
+    console.log(data);
+});
+
+</script>
+
+
+新增：
+//client 查詢當下人數
+socket.emit('DuringCount',{
+    username:'chenfp.mobile@gmail.com',
+    roomID:'123',
+    token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY2hlbmZwLm1vYmlsZUBnbWFpbC5jb20iLCJpYXQiOjE1MDI4NjkxNzksImV4cCI6MTUwMjk1NTU3OX0.9Tb1pu4nuSMICvDuxj_PZiqajGKOixbJm1qmED2xZNs'
+});
+
+
+//接收server回應room內人數
+socket.on('onDuringCount', function (data){
+    console.log(data);
+});
+
+
+onSTDuring回傳資料中沒有Time需要幫我加上 已更新
+
+流程：
+client -->下startsport;
+client等到收到serve回傳onStartSport 可以開始進行傳輸資料
+client開始傳輸資料的同時 會收到同房間內所有人的資料
+client根據資料做顯示處理
+client 下endsport
+client 下LeaveDisconnect
+
+//client 下'StartSport'指令
+socket.emit('StartSport',{
+    username:'chenfp.mobile@gmail.com',
+    roomID:'123',
+    token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY2hlbmZwLm1vYmlsZUBnbWFpbC5jb20iLCJpYXQiOjE1MDI3Nzc5NDcsImV4cCI6MTUwMjg2NDM0N30.lxx_XY9fKJPIBg0Pq6T3qlRlVXUl9KZy8GFFJtQMdUs'
+});
+
+//server 回startsport給client
+  socket.on('onStartSport', function (data){
+    console.log(data);
+    //client傳資料給server
+    socket.emit('STDuring',{
+        username:'chenfp.mobile@gmail.com',
+        roomID:'123',
+        token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY2hlbmZwLm1vYmlsZUBnbWFpbC5jb20iLCJpYXQiOjE1MDI3Nzc5NDcsImV4cCI6MTUwMjg2NDM0N30.lxx_XY9fKJPIBg0Pq6T3qlRlVXUl9KZy8GFFJtQMdUs',speed:'123',hr:'123',dist:'1234',time:'12333',r:'99999'
+    });
+});
+
+
+//server回傳所有房間內的人的即時資料給client
+  socket.on('onSTDuring', function (data){
+    console.log(data);//這邊可以處理所有人的資料 看要去弄排名還是什麼...如果這筆資料要另外再傳給其他的client event也可以提出
+});
+
+socket.emit LeaveDisconnect //client要斷線離開時 下給server 參數不用帶
+
+
+
+
+已成功加入房間。
+
+<script>
+  var socket = io.connect('http: //35.167.221.25:3005');
+//開房間用：以下範例欄位必填
+/*
+socket.emit('join',{
+    username:'chenfp.mobile@gmail.com',
+    roomID:'123',
+    token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY2hlbmZwLm1vYmlsZUBnbWFpbC5jb20iLCJpYXQiOjE1MDI3Nzc5NDcsImV4cCI6MTUwMjg2NDM0N30.lxx_XY9fKJPIBg0Pq6T3qlRlVXUl9KZy8GFFJtQMdUs'
+});
+*/
+//目前設計用來收系統資訊 後續可再考慮哪些資料屏蔽不需要收 現階段為debug用
+
+ socket.on('sys', function (data){
+    console.log(data);
+});
+  socket.on('onEvent1', function (data){
+    console.log(data);
+    socket.emit('TestEcho',
+    { my: 'data'
+    });
+});
+//統計目前人數用 由server主動觸發 範例欄位必填 token不對有問題 server會斷線
+   socket.on('onWhosHere', function (data){
+    console.log(data);
+    socket.emit('WhosHere',{
+        username:'chenfp.mobile@gmail.com',
+        roomID:'123',
+        token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiY2hlbmZwLm1vYmlsZUBnbWFpbC5jb20iLCJpYXQiOjE1MDI3Nzc5NDcsImV4cCI6MTUwMjg2NDM0N30.lxx_XY9fKJPIBg0Pq6T3qlRlVXUl9KZy8GFFJtQMdUs'
+    });
+});
+// server 每秒會回client 的 sys 資料：WhosHere...Qv17xv_Gry9dHjP9AAADuser = chenfp.mobile@gmail.com  
+//client必須maintain一組表 放user(chenfp.mobile@gmail.com) 以及連線id  (Qv17xv_Gry9dHjP9AAAD) 
+//從表中可以精確知道目前連線數（假如同user 有兩個不同連線id 亦即多開） 這部分後續還可以在討論要如何優化處理

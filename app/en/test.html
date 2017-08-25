@@ -1,0 +1,419 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Socket.IO chat</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 13px Helvetica, Arial;
+    }
+
+    form {
+      background: #000;
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      margin-right: .5%;
+    }
+
+    form button {
+      width: 9%;
+      background: rgb(130, 224, 255);
+      border: none;
+      padding: 10px;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .heart-wrapper {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background: #f33;
+      -webkit-animation: pulse 1.4s infinite;
+      -moz-animation: pulse 1.4s infinite;
+      -o-animation: pulse 1.4s infinite;
+      -ms-animation: pulse 1.4s infinite;
+      animation: pulse 1.4s infinite;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    .heart-wrapper:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: -50%;
+      background: #f33;
+      border-radius: 50%;
+    }
+
+    .heart-wrapper:before {
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f33;
+      left: -50%;
+    }
+
+    .heart-wrapper:hover {
+      cursor: pointer;
+    }
+
+    @-moz-keyframes pulse {
+      0 {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+      }
+      85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+      }
+      97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+      }
+    }
+
+    @-webkit-keyframes pulse {
+      0 {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+      }
+      85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+      }
+      97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+      }
+    }
+
+    @-o-keyframes pulse {
+      0 {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+      }
+      85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+      }
+      97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+      }
+    }
+
+    @keyframes pulse {
+      0 {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      50% {
+        -webkit-transform: scale(0.8) rotate(45deg);
+        -moz-transform: scale(0.8) rotate(45deg);
+        -o-transform: scale(0.8) rotate(45deg);
+        -ms-transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8) rotate(45deg);
+      }
+      85% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      90% {
+        -webkit-transform: scale(0.95) rotate(45deg);
+        -moz-transform: scale(0.95) rotate(45deg);
+        -o-transform: scale(0.95) rotate(45deg);
+        -ms-transform: scale(0.95) rotate(45deg);
+        transform: scale(0.95) rotate(45deg);
+      }
+      97% {
+        -webkit-transform: scale(0.9) rotate(45deg);
+        -moz-transform: scale(0.9) rotate(45deg);
+        -o-transform: scale(0.9) rotate(45deg);
+        -ms-transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9) rotate(45deg);
+      }
+      100% {
+        -webkit-transform: scale(1) rotate(45deg);
+        -moz-transform: scale(1) rotate(45deg);
+        -o-transform: scale(1) rotate(45deg);
+        -ms-transform: scale(1) rotate(45deg);
+        transform: scale(1) rotate(45deg);
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.css">
+</head>
+
+<body>
+  <ul id="messages"></ul>
+  <span id="Name">Name      :</span><br/>
+  <span id="Speed">Speed     :</span><br/>
+  <span id="Distance">Distance :</span><br/>
+  <span id="R">R :</span><br/>
+  <div id="HR">HR :<span class="heart-wrapper"></span></div>
+  <span id="Time">Time :</span><br/>
+
+  <div id="chart"></div>
+  <form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+  </form>
+
+
+  <!-- <script src="http://cdn.pubnub.com/pubnub.min.js"></script> -->
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.js"></script>
+  <script src="http://35.167.221.25:3005/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <script>
+    $(function () {
+      var socket = io('http://35.167.221.25:3005');
+
+      // socket.on('onEvent1', function(data){
+      // 		console.log(data);
+      // });
+      //  	socket.on('onTestEcho', function(data){
+      // 		console.log(data);
+      // });
+      socket.on('sys', function (data) {
+        // console.log('sys',data); 一些資訊 ex：加入房間
+      });
+      socket.on('connect', function (data) {
+        console.log("connect");
+        socket.emit('join', { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoic21hcnRjaGlwIiwiaWF0IjoxNTAyOTUyODAyLCJleHAiOjE1MDMwMzkyMDJ9.ABgnyKilBR1Ug4NF0gxlD8GutKD-d07FXBcP2NAMAtM', username: 'smartchip', roomID: '123' });
+      });
+      socket.on('disconnect', function (data) {
+        console.log("disconnect"); // 我自己斷線
+      });
+      socket.on('onWhosHere', function (data) {
+        console.log("onWhosHere :", data); //看誰在房間
+        socket.emit('WhosHere', { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoic21hcnRjaGlwIiwiaWF0IjoxNTAyOTUyODAyLCJleHAiOjE1MDMwMzkyMDJ9.ABgnyKilBR1Ug4NF0gxlD8GutKD-d07FXBcP2NAMAtM', username: 'smartchip', roomID: '123' });
+
+
+      });
+
+
+      socket.on('onSTDuring', function (data) {
+        console.log('onSTDuring', data);
+        for (var key in data) {
+          console.log("key " + key + " has value " + data[key]);
+          if (key == "speed") {
+            document.getElementById("Speed").innerHTML = 'speed : ' + data[key];
+          } else if (key == "username") {
+            document.getElementById("Name").innerHTML = data[key];
+          } else if (key == "dist") {
+            document.getElementById("Distance").innerHTML = 'distance : ' + data[key];
+          } else if (key == "r") {// 阻力
+            document.getElementById("R").innerHTML = 'R : ' + data[key];
+          } else if (key == "time") {
+            document.getElementById("Time").innerHTML = data[key];
+          } else if (key == "hr") {
+            document.getElementById("HR").innerHTML = 'HR : ' + data[key];
+            var chart = c3.generate({
+              data: {
+                columns: [
+                  ['data', data[key]]
+                ],
+                type: 'gauge',
+                // onclick: function (d, i) { console.log("onclick", d, i); },
+                // onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                // onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+              },
+              gauge: {
+                //        label: {
+                //            format: function(value, ratio) {
+                //                return value;
+                //            },
+                //            show: false // to turn off the min/max labels.
+                //        },
+                min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+                max: 200, // 100 is default
+                //    units: ' %',
+                width: 29 // for adjusting arc thickness
+              },
+              color: {
+                pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+                threshold: {
+                  //            unit: 'value', // percentage is default
+                  //            max: 200, // 100 is default
+                  values: [50, 100, 150, 200]
+                }
+              },
+              size: {
+                height: 180
+              }
+            });
+          }
+        }
+
+        //這邊可以處理所有人的資料 看要去弄排名還是什麼...如果這筆資料要另外再傳給其他的client event也可以提出
+
+      });
+
+      socket.on('onStartSport', function (data) {
+        console.log('onStartSport', data);
+        //這邊可以處理所有人的資料 看要去弄排名還是什麼...如果這筆資料要另外再傳給其他的client event也可以提出
+
+      });
+
+
+
+
+
+      // socket.emit('TestEcho', {});
+
+      // }); 
+
+
+
+      $('form').submit(function () {
+        console.log('submit pressed', $('#m').val());
+        // socket.emit('TestEcho', $('#m').val());
+        socket.emit('StartSport', { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoic21hcnRjaGlwIiwiaWF0IjoxNTAyOTUyODAyLCJleHAiOjE1MDMwMzkyMDJ9.ABgnyKilBR1Ug4NF0gxlD8GutKD-d07FXBcP2NAMAtM', username: 'smartchip', roomID: '123' });
+        $('#m').val('');
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>

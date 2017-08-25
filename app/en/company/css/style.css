@@ -1,0 +1,368 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Roboto', sans-serif;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/*
+=======================================================
+reset css
+=======================================================
+ */
+
+
+/*
+=======================================================
+標頭開始
+=======================================================
+ */
+
+.container {
+    max-width: 1040px;
+    padding: 0 20px;
+}
+
+.navbar-default {
+    background-color: #6b767e;
+    /*background-color: #ad8541;*/
+    border: none;
+}
+
+.logoImg img {
+    max-width: 100%;
+    width: 157px;
+    height: 39px;
+}
+
+.logoImg {
+    padding: .5%;
+}
+
+.logoImg ul {
+    display: inline-flex;
+}
+
+.navbar-fixed-top .logoImg li:before {
+    content: "/";
+    color: #a0a9b0;
+    padding: 0 13px 0 7px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar-right a {
+    color: #fff;
+}
+
+a:focus,
+a:hover {
+    color: #eeeae5;
+    text-decoration: none;
+    outline: none;
+}
+
+.navbar-right {
+    font-size: 18px;
+    line-height: 12px;
+    font-weight: 300;
+}
+
+
+/*
+=======================================================
+標頭結束
+=======================================================
+ */
+
+
+/*
+=======================================================
+登入的modal
+=======================================================
+ */
+
+.login-facebook {
+    width: 100%;
+    padding: 15px 17px;
+    color: #eee;
+    margin: 7px 0;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.login-facebook:hover {
+    color: #fff;
+}
+
+.login-facebook {
+    background: #3b5998;
+}
+
+.login-facebook span {
+    font-weight: normal;
+    font-size: 17px;
+    -webkit-text-transform: capitalize;
+    -moz-text-transform: capitalize;
+    -ms-text-transform: capitalize;
+    -o-text-transform: capitalize;
+    text-transform: capitalize;
+}
+
+.login-facebook i {
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.loginColor {
+    background-color: #6b767e;
+    color: #fff;
+}
+
+.btn.loginColor:focus {
+    background-color: #6b767e;
+    color: #fff;
+    outline: none;
+}
+
+.btn.loginColor:hover {
+    background-color: #fff;
+    color: #6b767e;
+    font-weight: 600;
+    border: 1px solid #6b767e;
+    outline: none;
+}
+
+.or {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.errorMsg,
+.errorPassword {
+    color: red;
+    padding-top: 10px;
+}
+
+.errorMsg a:hover {
+    color: #337ab7;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+#login .modal-footer {
+    text-align: left;
+    padding: 0;
+}
+
+
+/*
+=======================================================
+登入的modal
+=======================================================
+ */
+
+
+/*
+=======================================================
+註冊的modal
+=======================================================
+ */
+
+.signUpMsg,
+.taxIdMsg {
+    padding: 8px 0 0 5px;
+    color: red;
+}
+
+.signUpDone {
+    font-size: 22px;
+    color: green;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+/*
+=======================================================
+註冊的modal
+=======================================================
+ */
+
+
+/*
+=======================================================
+首頁圖
+=======================================================
+ */
+
+.mainBg {
+    background: url(../images/david-marcu-69433.jpg) center right fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: 40% 70%;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+}
+
+
+/*
+=======================================================
+首頁圖
+=======================================================
+*/
+
+
+/*
+廠商的 style
+*/
+
+@media(max-width: 768px) {
+    .mainBg {
+        background: url(../images/david-marcu-69433.jpg) center center fixed no-repeat;
+        -moz-background-size: cover;
+        background-position: 23%;
+        background-size: 178% 100%;
+        width: 100%;
+        height: 100%;
+        opacity: .8;
+    }
+}
