@@ -43,7 +43,7 @@ function userLogin(cb) {
     var errorMsg = "";
     if (data.result === "false") {
       errorMsg += '<div class="alert alert-danger" role="alert">';
-      errorMsg += "請檢查您的電子郵件和密碼。</div>";
+      errorMsg += "Please check your email and password.</div>";
       $(".errorMsg").html(errorMsg);
       $("#login").on("hidden.bs.modal", function() {
         $("#userLogInName").val("");
@@ -142,7 +142,7 @@ function getProfile() {
             data.data.error.code === "ER_DATA_TOO_LONG"
           ) {
             var errorMsg = "";
-            errorMsg += "年齡輸入錯誤 ex：30";
+            errorMsg += "Age fail ex：30";
             $(".errorMsg").html(errorMsg);
           }
         })
@@ -230,7 +230,7 @@ function userSignUp(cb) {
     var signUpMsg = "";
     if (data.result === "success" && data.method === "email send") {
       signUpMsg += '<div class="alert alert-success" role="alert">';
-      signUpMsg += "成功,前往信箱開啟帳戶</div>";
+      signUpMsg += "Done</div>";
       $(".signUpDone").html(signUpMsg);
       $(".signUpMsg").html("");
       cb(null, data);
@@ -243,7 +243,7 @@ function userSignUp(cb) {
       data.result === "false" &&
       data.data.event === "userName already used"
     ) {
-      signUpMsg += "此帳號已被使用";
+      signUpMsg += "Account Aleardy used";
       $(".signUpMsg").html(signUpMsg);
       $(".signUpDone").html("");
     } else {
@@ -264,7 +264,7 @@ $("#userSignUpForm").on("focus input", function() {
     if ($("#password").val() !== $("#repassword").val()) {
       var msgPW = "";
       msgPW += '<div class="alert alert-danger" role="alert">';
-      msgPW += "密碼重複輸入錯誤。</div>";
+      msgPW += "Confirm password fail</div>";
       $(".signUpDone").html(msgPW);
       $("input[name='repassword']").css({
         borderColor: "red"
@@ -337,7 +337,7 @@ $("#forgetPWForm").submit(function() {
       $(".showLoader").html("");
       var errorText = "";
       errorText += '<div class="alert alert-danger" role="alert">';
-      errorText += "請檢查您的電子郵件。</div>";
+      errorText += "Please check your email.</div>";
       $("#errorText").html(errorText);
     }
   }).done(function(data) {
@@ -345,7 +345,7 @@ $("#forgetPWForm").submit(function() {
     if (data.result === "success") {
       var doneText = "";
       doneText += '<div class="alert alert-success" role="alert">';
-      doneText += "成功,請至您的電子郵件開通帳戶。</div>";
+      doneText += "Done</div>";
       $("#doneText").html(doneText);
     }
   });

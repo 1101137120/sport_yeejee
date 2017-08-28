@@ -1,21 +1,20 @@
-var gulp = require('gulp');
-var webserver = require('gulp-webserver');
-var concat     = require('gulp-concat'),
-    minifyCSS  = require('gulp-minify-css'),
-    uglify     = require('gulp-uglify'),
-    rename     = require("gulp-rename");
+var gulp = require("gulp");
+var webserver = require("gulp-webserver");
+var concat = require("gulp-concat"),
+  minifyCSS = require("gulp-minify-css"),
+  uglify = require("gulp-uglify"),
+  rename = require("gulp-rename");
 
-
-
-gulp.task('webserver', function(){
-	gulp.src('./app/')
-				.pipe(webserver({
-					port:8080,
-					livereload:true,
-					directoryListing:false,
-					open:true,
-					fallback:'index.html'
-				}));
+gulp.task("webserver", function() {
+  gulp.src("./app/").pipe(
+    webserver({
+      port: 8080,
+      livereload: true,
+      directoryListing: false,
+      open: true,
+      fallback: "index.html"
+    })
+  );
 });
 /*
 gulp.task('concat', function() {
@@ -47,4 +46,4 @@ gulp.task('uglify', function() {
 });
 gulp.task('default',['minify-css','uglify']);
 */
-gulp.task('default',['webserver']);
+gulp.task("default", ["webserver"]);

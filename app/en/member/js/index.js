@@ -175,18 +175,18 @@ function getAllSportData() {
     console.log(allMonthData);
     let chartdata = {
       labels: [
-        "一月",
-        "二月",
-        "三月",
-        "四月",
-        "五月",
-        "六月",
-        "七月",
-        "八月",
-        "九月",
-        "十月",
-        "十一月",
-        "十二月"
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
       ],
       datasets: [
         {
@@ -201,15 +201,15 @@ function getAllSportData() {
       ]
     }; //chartdata 結束
 
-    $(".showYear").append("<h1>年紀錄</h1>");
+    $(".showYear").append("<h1>2017</h1>");
     var showTab = "";
     showTab += '<li class="active">';
     showTab +=
-      '<a href="#home" data-toggle="tab"><i class="fa fa-line-chart" aria-hidden="true"></i> 圖示</a>';
+      '<a href="#home" data-toggle="tab"><i class="fa fa-line-chart" aria-hidden="true"></i></a>';
     showTab += "</li>";
     showTab += "<li>";
     showTab +=
-      '<li><a href="#profile" data-toggle="tab"><i class="fa fa-list-ul" aria-hidden="true"></i> 例表</a>';
+      '<li><a href="#profile" data-toggle="tab"><i class="fa fa-list-ul" aria-hidden="true"></i></a>';
     showTab += "</li>";
     $(".nav-tabs").html(showTab);
     let canvas = document.getElementById("mycanvas");
@@ -236,7 +236,7 @@ function getAllSportData() {
         }
       }
     });
-    // 因 20170822 開會決定更改流程一進到畫面就 show 出 全部的資料和最新一筆的詳細資料
+    // 因 20170822 開會決定更改流程一進到畫面就 show 出全部的資料和最新一筆的詳細資料
     var getDate = new Date().getMonth() + 1;
     console.log(getDate);
     switch (getDate) {
@@ -261,27 +261,27 @@ function getAllSportData() {
       $(".monthMune ul").show();
       $(".showDayMessage").show();
       $(".showTextMune").show();
-      // 監聽 user 點柱狀圖裡的哪個月份後進入 switch ，然後再進入 setMonthData function 帶月份跟資料兩個參數得到運動資料
+      // 監聽 user 點柱狀圖裡的哪個月份後進入 switch ，然後再進入 setMonthData function 帶月份參數得到運動資料
       switch (label) {
-        case "一月":
+        case "Jan":
           $(".showDayMessage2").html("");
           $(".showDayMessage3").html("");
           $(".showDay").html("");
           setMonthData(janData);
           break;
-        case "七月":
+        case "Jul":
           $(".showDayMessage2").html("");
           $(".showDayMessage3").html("");
           $(".showDay").html("");
           setMonthData(julData);
           break;
-        case "八月":
+        case "Aug":
           $(".showDayMessage2").html("");
           $(".showDayMessage3").html("");
           $(".showDay").html("");
           setMonthData(augData);
           break;
-        case "九月":
+        case "Sep":
           $(".showDayMessage2").html("");
           $(".showDayMessage3").html("");
           $(".showDay").html("");
@@ -332,7 +332,7 @@ function setMonthData(month) {
   // 判斷這個月有沒有運動資料
   if (month.data.length === 0) {
     console.log(month);
-    $(".showMonth").html("沒有運動資料");
+    $(".showMonth").html("No sports information");
     $("#mycanvasDay").hide();
     $(".mouseOver .row").css({ overflow: "hidden", height: "0px" });
     return;
@@ -440,9 +440,13 @@ function setMonthData(month) {
     let getDate = getAllDay.slice(8, 10);
     $(".mouseOver .row").css({ overflow: "scroll", height: "400px" });
     $(".showTextMune").html(
-      "<p>" + getMonth + "月份共有 " + month.data.length + " 筆運動資料</p>"
+      "<p>There are " +
+        month.data.length +
+        " sport information data of " +
+        getMonth +
+        "</p>"
     );
-    $(".showMonth").html("<h1>" + getMonth + " 月份的紀錄</h1>");
+    $(".showMonth").html("<h1>Records of " + getMonth + "</h1>");
     $(".showDayMessage").append(
       '<tr class="active searchDay"><th>' +
         getYear +
@@ -474,21 +478,21 @@ function setMonthData(month) {
     var theSecond = parseInt(getdEncodingArr[getLastData].sTimeT / 2 % 60);
     var theMinute = parseInt(getdEncodingArr[getLastData].sTimeT / 2 / 60 % 60);
     var theHour = parseInt(getdEncodingArr[getLastData].sTimeT / 2 / 60 / 60);
-    var result = "" + parseInt(theSecond) + " 秒";
+    var result = "" + parseInt(theSecond) + " s";
     if (theMinute > 0) {
-      result = "" + parseInt(theMinute) + " 分 " + result;
+      result = "" + parseInt(theMinute) + " m " + result;
     }
     if (theHour > 0) {
-      result = "" + parseInt(theHour) + " 小時 " + result;
+      result = "" + parseInt(theHour) + " h " + result;
     }
     return result;
   }
   $(".showDay").html(
-    "<p>" +
-      getdEncodingArr[getLastData].StartTime.slice(5, 7) +
-      "月" +
+    "<p>Detailed sport information on " +
       getdEncodingArr[getLastData].StartTime.slice(8, 10) +
-      "號詳細的運動資料</p>"
+      "th of " +
+      getdEncodingArr[getLastData].StartTime.slice(5, 7) +
+      "</p>"
   );
   $(".showDayMessage2").html(
     '<tr><th class="active"></th><th class="active"><span class="font">TOTAL</span></' +
@@ -521,6 +525,7 @@ function setMonthData(month) {
       getdEncodingArr[getLastData].hrMax +
       "</td></tr>"
   );
+  $(".showRound").html("");
   $.ajax({
     type: "POST",
     url: url + "api/rtInfo/GET",
@@ -534,13 +539,20 @@ function setMonthData(month) {
     var getInfoData = [];
 
     sportInfoData.data.rows.forEach(function(data, index) {
-      getInfoData.push([index, parseInt(data.rtHR), parseInt(data.rtRPM)]);
+      getInfoData.push([
+        index,
+        parseInt(data.rtHR),
+        parseInt(data.rtWatt),
+        parseInt(data.rtSpeed)
+      ]);
     });
-    new Dygraph(document.getElementById("graphdiv"), getInfoData, {
-      labels: ["秒", "心跳", "轉速"],
+    var g = new Dygraph(document.getElementById("graphdiv"), getInfoData, {
+      labels: ["秒", "Heart rate", "Watt", "Speed"],
       showRangeSelector: true, // 圖表下面的選取範圍
-      rangeSelectorPlotFillColor: "#000", // 選取範圍的顏色
-      legend: "always" // 狀態一直存在 ex： 心跳、轉速
+      rangeSelectorPlotFillColor: "#646464", // 選取範圍的顏色
+      legend: "always", // 狀態一直存在 ex： 心跳、轉速
+      animatedZooms: true,
+      colors: ["#ff0079", "#01aeae", "#cbcb00"]
     });
   });
 
@@ -555,17 +567,23 @@ function setMonthData(month) {
       var theSecond = parseInt(getdEncodingArr[i].sTimeT / 2 % 60);
       var theMinute = parseInt(getdEncodingArr[i].sTimeT / 2 / 60 % 60);
       var theHour = parseInt(getdEncodingArr[i].sTimeT / 2 / 60 / 60);
-      var result = "" + parseInt(theSecond) + " 秒";
+      var result = "" + parseInt(theSecond) + " s";
       if (theMinute > 0) {
-        result = "" + parseInt(theMinute) + " 分 " + result;
+        result = "" + parseInt(theMinute) + " m " + result;
       }
       if (theHour > 0) {
-        result = "" + parseInt(theHour) + " 小時 " + result;
+        result = "" + parseInt(theHour) + " h " + result;
       }
       return result;
     }
     $(".searchDay" + i).on("click", function() {
-      $(".showDay").html("<p>" + getMonth + "月" + getDate + "號詳細的運動資料</p>");
+      $(".showDay").html(
+        "<p>Detailed sport information on " +
+          getDate +
+          "th of " +
+          getMonth +
+          "</p>"
+      );
       $(".showDayMessage2").html("");
       $(".showDayMessage3").html("");
       $("#graphdiv").html("");
@@ -633,14 +651,20 @@ function setMonthData(month) {
         var getInfoData = [];
 
         sportInfoData.data.rows.forEach(function(data, index) {
-          getInfoData.push([index, parseInt(data.rtHR), parseInt(data.rtRPM)]);
+          getInfoData.push([
+            index,
+            parseInt(data.rtHR),
+            parseInt(data.rtWatt),
+            parseInt(data.rtSpeed)
+          ]);
         });
         var g = new Dygraph(document.getElementById("graphdiv"), getInfoData, {
-          labels: ["秒", "心跳", "轉速"],
+          labels: ["s", "Heart rate", "Watt", "Speed"],
           showRangeSelector: true, // 圖表下面的選取範圍
           rangeSelectorPlotFillColor: "#646464", // 選取範圍的顏色
           legend: "always", // 狀態一直存在 ex： 心跳、轉速
-          animatedZooms: true
+          animatedZooms: true,
+          colors: ["#ff0079", "#01aeae", "#cbcb00"]
         });
         // 因為使用 bootstrap tab 的關係會導致 dygraph 這個 library 不知道 div 的寬度多少，會出現 bug (圖無法顯示)
         // 所以用這個 resize() 補救
@@ -777,11 +801,11 @@ function showProfile() {
       }).done(function(data) {
         console.log(data);
         var getProfile = "";
-        getProfile += "<p>姓名： " + data.data.detail[0].uCName + "</p>";
-        getProfile += "<p>性別： " + data.data.detail[0].uSex + "</p>";
-        getProfile += "<p>生日： " + data.data.detail[0].uBirthD + "</p>";
-        getProfile += "<p>身高： " + data.data.detail[0].uHeight + "</p>";
-        getProfile += "<p>體重： " + data.data.detail[0].uWeight + "</p>";
+        getProfile += "<p>Name： " + data.data.detail[0].uCName + "</p>";
+        getProfile += "<p>Sex： " + data.data.detail[0].uSex + "</p>";
+        getProfile += "<p>Birthday： " + data.data.detail[0].uBirthD + "</p>";
+        getProfile += "<p>Height： " + data.data.detail[0].uHeight + "</p>";
+        getProfile += "<p>Weight： " + data.data.detail[0].uWeight + "</p>";
         $(".showProfile").append(getProfile);
       });
     }

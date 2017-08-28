@@ -3,13 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="application/x-www-form-urlencoded; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>運動平台</title>
+    <title>Sport</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/csspin-round.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css?20170825">
 </head>
 
 <body onload="checkCookie();">
@@ -40,36 +40,36 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h2 class="modal-title text-center" id="myModalLabelSignUp">註冊並開始運動吧！</h2>
+                            <h2 class="modal-title text-center" id="myModalLabelSignUp">Sign Up and Start Sporting!</h2>
                         </div>
                         <div class="modal-body">
                             <div class="signUpDone text-center"></div>
                             <div class="form-group">
-                                <label for="">email：</label>
-                                <input type="email" class="form-control" name="username" id="username" placeholder="電子郵件" />
+                                <label for="">Email：</label>
+                                <input type="email" class="form-control" name="username" id="username" placeholder="Email" />
                                 <div class="signUpMsg"></div>
                             </div>
                             <div class="form-group">
-                                <label for="">password：</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="密碼" />
+                                <label for="">Password：</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
                             </div>
                             <div class="form-group">
-                                <label for="">retype password：</label>
-                                <input type="password" class="form-control" name="repassword" id="repassword" placeholder="請再輸入一次密碼" />
+                                <label for="">Retype password：</label>
+                                <input type="password" class="form-control" name="repassword" id="repassword" placeholder="Confirm password" />
                             </div>
                             <div class="form-group">
-                                <label for="">name：</label>
-                                <input type="text" class="form-control" name="userN" id="userN" placeholder="姓名" />
+                                <label for="">Nname：</label>
+                                <input type="text" class="form-control" name="userN" id="userN" placeholder="Name" />
                             </div>
                             <div class="form-group">
-                                <label for="">birthday：</label>
+                                <label for="">Birthday：</label>
                                 <input type="date" class="form-control" name="userDate" id="userDate" />
                             </div>
                         </div>
                         <div class="modal-footer">
                             <input id="signUpBtn" class="btn loginColor" type="submit" value="Signup" data-loading-text="Loading...">
                             <hr>
-                            <div class="goLogIn">已經擁有帳戶？ <a data-dismiss="modal" data-toggle="modal" href="#login">登入</a></div>
+                            <div class="goLogIn">Already have an account? <a data-dismiss="modal" data-toggle="modal" href="#login">Log in</a></div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h2 class="modal-title text-center" id="myModalLabelLogIn">登入您的帳戶！</h2>
+                            <h2 class="modal-title text-center" id="myModalLabelLogIn">Log In to Your Sport Account!</h2>
                         </div>
                         <div class="modal-body">
                             <!-- <div class="login-facebook text-left">
@@ -103,21 +103,21 @@
                             </div> -->
                             <div class="errorMsg"></div>
                             <div class="form-group">
-                                <label id="firstLabel" for="">email：</label>
-                                <input type="email" class="form-control" name="username" id="userLogInName" placeholder="電子郵件 (abc@sample.com)" />
+                                <label id="firstLabel" for="">Email：</label>
+                                <input type="email" class="form-control" name="username" id="userLogInName" placeholder="Email (abc@sample.com)" />
                             </div>
                             <div class="form-group">
-                                <label for="">password：</label>
-                                <input type="password" class="form-control" name="password" id="userLogInPassword" placeholder="密碼" />
+                                <label for="">Password：</label>
+                                <input type="password" class="form-control" name="password" id="userLogInPassword" placeholder="Password" />
                             </div>
                             <div class="modal-footer">
                                 <input id="logInBtn" class="btn loginColor" type="submit" value="Login" data-loading-text="Loading...">
                                 <div class="forgetPW">
-                                    <div>或 <a data-dismiss="modal" data-toggle="modal" href="#forgetPW">忘記密碼</a></div>
+                                    <div>OR <a data-dismiss="modal" data-toggle="modal" href="#forgetPW">Forgot Password</a></div>
                                 </div>
                                 <hr>
                                 <div class="goSignUp">
-                                    <div>還沒有帳戶嗎？ <a data-dismiss="modal" data-toggle="modal" href="#signup">註冊</a>
+                                    <div>Don't have an account? <a data-dismiss="modal" data-toggle="modal" href="#signup">Sign up</a>
                                     </div>
                                 </div>
                             </div>
@@ -143,13 +143,13 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input type="number" class="form-control" name="uHeight" id="uHeight" placeholder="身高" />
+                                <input type="number" class="form-control" name="uHeight" id="uHeight" placeholder="Height" />
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="uWeight" id="uWeight" placeholder="體重" />
+                                <input type="number" class="form-control" name="uWeight" id="uWeight" placeholder="Weight" />
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="uAge" id="uAge" placeholder="年齡" />
+                                <input type="number" class="form-control" name="uAge" id="uAge" placeholder="Age" />
                                 <div class="errorMsg"></div>
                             </div>
                             <div id="uSexBtn" class="btn-group" data-toggle="buttons">
@@ -230,7 +230,7 @@
     </section>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="js/index.js?20170807"></script>
+    <script src="js/index.js?20170825"></script>
     <script src="js/jquery.cookie.js"></script>
     <script src="js/Chart.min.js"></script>
     <script src="js/parsley.min.js"></script>

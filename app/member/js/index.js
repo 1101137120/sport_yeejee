@@ -521,6 +521,7 @@ function setMonthData(month) {
       getdEncodingArr[getLastData].hrMax +
       "</td></tr>"
   );
+  $(".showRound").html("");
   $.ajax({
     type: "POST",
     url: url + "api/rtInfo/GET",
@@ -534,13 +535,20 @@ function setMonthData(month) {
     var getInfoData = [];
 
     sportInfoData.data.rows.forEach(function(data, index) {
-      getInfoData.push([index, parseInt(data.rtHR), parseInt(data.rtRPM)]);
+      getInfoData.push([
+        index,
+        parseInt(data.rtHR),
+        parseInt(data.rtWatt),
+        parseInt(data.rtSpeed)
+      ]);
     });
     new Dygraph(document.getElementById("graphdiv"), getInfoData, {
-      labels: ["秒", "心跳", "轉速"],
+      labels: ["秒", "心跳", "瓦特", "速度"],
       showRangeSelector: true, // 圖表下面的選取範圍
       rangeSelectorPlotFillColor: "#000", // 選取範圍的顏色
-      legend: "always" // 狀態一直存在 ex： 心跳、轉速
+      legend: "always", // 狀態一直存在 ex： 心跳、轉速
+      animatedZooms: true,
+      colors: ["#ff0079", "#01aeae", "#cbcb00"]
     });
   });
 
@@ -633,14 +641,20 @@ function setMonthData(month) {
         var getInfoData = [];
 
         sportInfoData.data.rows.forEach(function(data, index) {
-          getInfoData.push([index, parseInt(data.rtHR), parseInt(data.rtRPM)]);
+          getInfoData.push([
+            index,
+            parseInt(data.rtHR),
+            parseInt(data.rtWatt),
+            parseInt(data.rtSpeed)
+          ]);
         });
         var g = new Dygraph(document.getElementById("graphdiv"), getInfoData, {
-          labels: ["秒", "心跳", "轉速"],
+          labels: ["秒", "心跳", "瓦特", "速度"],
           showRangeSelector: true, // 圖表下面的選取範圍
           rangeSelectorPlotFillColor: "#646464", // 選取範圍的顏色
           legend: "always", // 狀態一直存在 ex： 心跳、轉速
-          animatedZooms: true
+          animatedZooms: true,
+          colors: ["#ff0079", "#01aeae", "#cbcb00"]
         });
         // 因為使用 bootstrap tab 的關係會導致 dygraph 這個 library 不知道 div 的寬度多少，會出現 bug (圖無法顯示)
         // 所以用這個 resize() 補救

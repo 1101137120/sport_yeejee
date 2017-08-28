@@ -49,17 +49,17 @@ function searchArr(data) {
   if (data.data.error === "undefined not in list" && data.result === "false") {
     $("table thead").html("");
     $(".showLoader").remove();
-    $(".showStatusText").html("<h1>目前無裝置</h1>");
+    $(".showStatusText").html("<h1>There is currently no device</h1>");
     return;
   }
   var columns = "";
   columns += "<thead>";
   columns += "<tr>";
-  columns += "<th>品牌</th>";
-  columns += '<th data-type="number">編號</th>';
-  columns += "<th>型號</th>";
-  columns += '<th data-type="number">裝置序號</th>';
-  columns += "<th>裝置狀態</th>";
+  columns += "<th>Brand</th>";
+  columns += '<th data-type="number">Numbering</th>';
+  columns += "<th>Model</th>";
+  columns += '<th data-type="number">Device serial number</th>';
+  columns += "<th>Device status</th>";
   columns += "</tr>";
   columns += "</thead>";
   getCpProfile(function(err, profileData) {
@@ -102,7 +102,7 @@ function searchArr(data) {
         }
       }
       console.log("比對完有異常的 sDeviceID ： ", result);
-      $(".showStatusText").html("<h1>廠商所有裝置</h1>");
+      $(".showStatusText").html("<h1>Vendor all devices</h1>");
       $(".tableList").footable({
         columns: $("table").html(columns),
         row: data.data.detail.forEach(function(data, index) {
@@ -125,7 +125,7 @@ function searchArr(data) {
             '">' +
             '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#' +
             data.sDeviceID +
-            '">詳細</button></td>';
+            '">Detailed</button></td>';
           /*
         row += '<td id="status" class="statusList">' + 
         '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#status' + status + '">異常</button></td></tr>';
@@ -145,13 +145,13 @@ function searchArr(data) {
               $(".firstModal").attr("id", $thisId);
               modal += '<table class="table">';
               modal += "<tr>";
-              modal += "<th>品牌</th>";
-              modal += "<th>型號</th>";
-              modal += "<th>製造商</th>";
-              modal += "<th>製造商</th>";
-              modal += "<th>編號</th>";
-              modal += "<th>啟用日期</th>";
-              modal += "<th>器材種類</th>";
+              modal += "<th>Brand</th>";
+              modal += "<th>Model</th>";
+              modal += "<th>Manufacturer</th>";
+              modal += "<th>Manufacturer</th>";
+              modal += "<th>Numbering</th>";
+              modal += "<th>Enable date</th>";
+              modal += "<th>Equipment type</th>";
               modal += "</tr>";
               modal += "<tr>";
               modal += "<td>" + data.sBrands + "</td>";
@@ -164,12 +164,12 @@ function searchArr(data) {
               modal += "</tr>";
               modal += "</table>";
               $(".modal-body").html(modal);
-              $(".modal-title").html("<h4>詳細資料</h4>");
+              $(".modal-title").html("<h4>Details</h4>");
               // 這邊是讓有異常裝置的 button 可以按，反之不能按
               // 每按一次就抓一次 ajax , 這邊要改，因效能不好
               var modalFooterBtn = "";
               modalFooterBtn +=
-                '<a data-dismiss="modal" data-toggle="modal" href="#statusData" id="statusDataBtn" class="btn btn-danger">異常</a>';
+                '<a data-dismiss="modal" data-toggle="modal" href="#statusData" id="statusDataBtn" class="btn btn-danger">Error</a>';
               $(".modal-footer span").html(modalFooterBtn);
               $.ajax({
                 type: "POST",
@@ -198,10 +198,10 @@ function searchArr(data) {
                 var modal = "";
                 modal += '<table class="table">';
                 modal += "<tr>";
-                modal += "<th>編號</th>";
-                modal += "<th>日期</th>";
-                modal += "<th>時間</th>";
-                modal += "<th>異常狀態</th>";
+                modal += "<th>Numbering</th>";
+                modal += "<th>Date</th>";
+                modal += "<th>Time</th>";
+                modal += "<th>Abnormal state</th>";
                 modal += "</tr>";
                 data.data.detail.forEach(function(data, index) {
                   modal += "<tr>";
@@ -213,11 +213,11 @@ function searchArr(data) {
                 });
                 modal += "</table>";
                 $("#statusData .modal-body").html(modal);
-                $("#statusData .modal-title").html("<h4>異常狀態</h4>");
+                $("#statusData .modal-title").html("<h4>Abnormal state</h4>");
                 $("#statusData .modal-footer span").html(
                   '<a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#' +
                     $thisId +
-                    '"">回詳細資料</a>'
+                    '"">Back detailed information</a>'
                 );
               });
             });
@@ -266,16 +266,16 @@ function showCpProfile() {
       var showProfile = "";
       if (shortData.others === null) {
         shortData.others = "無";
-        showProfile += "<p>公司名稱： " + shortData.cpName + "</p>";
-        showProfile += "<p>公司類別： " + shortData.cpType + "</p>";
-        showProfile += "<p>統一編號： " + shortData.taxID + "</p>";
-        showProfile += "<p>備註： " + shortData.others + "</p>";
+        showProfile += "<p>Company Name： " + shortData.cpName + "</p>";
+        showProfile += "<p>Company Type: " + shortData.cpType + "</p>";
+        showProfile += "<p>Uniform numbers: " + shortData.taxID + "</p>";
+        showProfile += "<p>Others： " + shortData.others + "</p>";
         $(".showProfile").append(showProfile);
       } else {
-        showProfile += "<p>公司名稱： " + shortData.cpName + "</p>";
-        showProfile += "<p>公司類別： " + shortData.cpType + "</p>";
-        showProfile += "<p>統一編號： " + shortData.taxID + "</p>";
-        showProfile += "<p>備註： " + shortData.others + "</p>";
+        showProfile += "<p>Company Name： " + shortData.cpName + "</p>";
+        showProfile += "<p>Company Type: " + shortData.cpType + "</p>";
+        showProfile += "<p>Uniform numbers: " + shortData.taxID + "</p>";
+        showProfile += "<p>Others： " + shortData.others + "</p>";
         $(".showProfile").append(showProfile);
       }
     });
