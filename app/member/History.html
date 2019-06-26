@@ -1,0 +1,360 @@
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="application/x-www-form-urlencoded; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人資料</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/headerNav.css" rel="stylesheet">
+    <link href="./css/bootstrap-slider.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/indexNavPill.css">
+    <link rel="stylesheet" type="text/css" href="css/fileinput.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fileinput-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fileinput.css">
+
+
+</head>
+
+<body>
+
+
+
+    <header style="height: 20%;">
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+            <a href="index.html" class="navbar-brand" style="width: 130px;height: 40px;">
+                <img src="../images/logo_white.png" alt="首頁logo" style="width: 100%;height:  100%;">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Logs.html">Logs
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="History.html">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rankings.html">Rankings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="TRAININGPARTERS.html">TrainingParters</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">年紀錄</a>
+                    </li>
+                    <li class="nav-item dropdown  active">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">個人資料</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="profile.html">帳號資訊</a>
+                            <a class="dropdown-item  logOut" href="../index.html">登出</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container default">
+        <div class="row">
+            <main class="two_column">
+
+
+                <section class="content col-md-9">
+
+
+                    <div class="history-section">
+
+                        <h2>Seasons</h2>
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Season</th>
+                                    <th>Distance</th>
+                                    <th>View</th>
+                                    <th class="hidden-xxs">Export</th>
+                                    <th class="hidden-xxs">Certificate</th>
+                                </tr>
+                                <tr>
+                                    <td>2018/2019</td>
+                                    <td>12,345m</td>
+                                    <td>
+                                        <a href="/season/2019" class="btn btn-default btn-xs">
+                                            <i class="icon-table"></i> View Season</a>
+                                    </td>
+                                    <td class="hidden-xxs">
+                                        <a href="/season/2019/export" class="btn btn-default btn-xs">
+                                            <i class="icon-download"></i> CSV</a>
+                                    </td>
+                                    <td class="hidden-xxs">
+                                        <a href="/season/2019/pdf" class="btn btn-default btn-xs">
+                                            <i class="icon-certificate"></i> Download</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>
+                            <strong>Note:</strong> Seasons run from May 1 through to April 30.</p>
+
+                    </div>
+
+                    <div class="history-section">
+
+                        <h2>Catchup Meters</h2>
+
+                        <p>Catchup meters are for when you are starting your Logbook or if you are returning to it after an absence. You can either enter them as a single result in order to get your logbook quickly up to speed, or you can break them down
+                            into chunks.</p>
+
+
+                        <p>
+                            <a href="/summary" class="btn btn-default">
+                                <i class="icon-plus-circle"></i> View/add catchup meters</a>
+                        </p>
+
+                    </div>
+
+                    <div class="history-section">
+
+
+                    </div>
+
+                </section>
+                <section class="sidebar col-md-3">
+
+                    <div class="stats">
+                        <div class="stat ">
+                            <div class="stat__figure">
+                                <span>12,345</span>
+                            </div>
+                            <div class="stat__name">
+                                Lifetime Meters
+                            </div>
+                        </div>
+                        <div class="stat ">
+                            <div class="stat__figure">
+                                <span>1:35:55.2</span>
+                            </div>
+                            <div class="stat__name">
+                                Total Time
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat ">
+                            <div class="stat__figure">
+                                <span>1</span>
+                            </div>
+                            <div class="stat__name">
+                                Workouts
+                            </div>
+                        </div>
+                        <div class="stat ">
+                            <div class="stat__figure">
+                                <span>631</span>
+                            </div>
+                            <div class="stat__name">
+                                Calories
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Meters By Season</h3>
+
+                    <div id="by_season" class="sidebar-graph-m" data-highcharts-chart="0">
+                        <div id="highcharts-7fudnf5-0" class="highcharts-container " style="position: relative; overflow: hidden; width: 360px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            <svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="360" height="300" viewBox="0 0 360 300">
+                                <desc>Created with Highcharts 5.0.14</desc>
+                                <defs>
+                                    <clipPath id="highcharts-7fudnf5-1">
+                                        <rect x="0" y="0" width="304" height="212" fill="none"></rect>
+                                    </clipPath>
+                                </defs>
+                                <rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="360" height="300"
+                                    rx="0" ry="0"></rect>
+                                <rect fill="none" class="highcharts-plot-background" x="46" y="10" width="304" height="212"></rect>
+                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                    <path fill="none" class="highcharts-grid-line" d="M 349.5 10 L 349.5 222" opacity="1"></path>
+                                    <path fill="none" class="highcharts-grid-line" d="M 45.5 10 L 45.5 222" opacity="1"></path>
+                                </g>
+                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                    <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 46 222.5 L 350 222.5"
+                                        opacity="1"></path>
+                                    <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 46 151.5 L 350 151.5"
+                                        opacity="1"></path>
+                                    <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 46 81.5 L 350 81.5"
+                                        opacity="1"></path>
+                                    <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 46 9.5 L 350 9.5"
+                                        opacity="1"></path>
+                                </g>
+                                <rect fill="none" class="highcharts-plot-border" x="46" y="10" width="304" height="212"></rect>
+                                <g class="highcharts-axis highcharts-xaxis ">
+                                    <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 350.5 222 L 350.5 232"
+                                        opacity="1"></path>
+                                    <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 45.5 222 L 45.5 232"
+                                        opacity="1"></path>
+                                    <path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" d="M 46 222.5 L 350 222.5"></path>
+                                </g>
+                                <g class="highcharts-axis highcharts-yaxis ">
+                                    <path fill="none" class="highcharts-axis-line" d="M 46 10 L 46 222"></path>
+                                </g>
+                                <g class="highcharts-series-group">
+                                    <g class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-color-0 highcharts-tracker"
+                                        transform="translate(46,10) scale(1 1)" clip-path="url(#highcharts-7fudnf5-1)">
+                                        <rect x="78.5" y="38.5" width="146" height="174" fill="#7cb5ec" stroke="#ffffff"
+                                            stroke-width="1" class="highcharts-point highcharts-color-0"></rect>
+                                    </g>
+                                    <g class="highcharts-markers highcharts-series-0 highcharts-column-series highcharts-color-0 "
+                                        transform="translate(46,10) scale(1 1)" clip-path="none"></g>
+                                </g>
+                                <g class="highcharts-legend" transform="translate(143,256)">
+                                    <rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="74"
+                                        height="29" visibility="visible"></rect>
+                                    <g>
+                                        <g>
+                                            <g class="highcharts-legend-item highcharts-column-series highcharts-color-0 highcharts-series-0"
+                                                transform="translate(8,3)">
+                                                <text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;"
+                                                    text-anchor="start" y="15">
+                                                    <tspan>Rower</tspan>
+                                                </text>
+                                                <rect x="2" y="4" width="12" height="12" fill="#7cb5ec" rx="6" ry="6"
+                                                    class="highcharts-point"></rect>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                                <g class="highcharts-axis-labels highcharts-xaxis-labels ">
+                                    <text x="198" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                        text-anchor="middle" transform="translate(0,0)" y="241" opacity="1">
+                                        <tspan>2019</tspan>
+                                    </text>
+                                </g>
+                                <g class="highcharts-axis-labels highcharts-yaxis-labels ">
+                                    <text x="31" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                        text-anchor="end" transform="translate(0,0)" y="226" opacity="1">
+                                        <tspan>0</tspan>
+                                    </text>
+                                    <text x="31" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                        text-anchor="end" transform="translate(0,0)" y="155" opacity="1">
+                                        <tspan>5k</tspan>
+                                    </text>
+                                    <text x="31" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                        text-anchor="end" transform="translate(0,0)" y="85" opacity="1">
+                                        <tspan>10k</tspan>
+                                    </text>
+                                    <text x="31" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                        text-anchor="end" transform="translate(0,0)" y="14" opacity="1">
+                                        <tspan>15k</tspan>
+                                    </text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(function() {
+
+                            var season_types = {
+                                "1": {
+                                    "2019": "12345"
+                                }
+                            };
+                            var seasons = {
+                                "2019": "12345"
+                            };
+                            var categories = Object.keys(seasons);
+                            types = [];
+
+                            for (var type in season_types) {
+                                var t = [];
+                                for (var season in seasons) {
+                                    var s = (season in season_types[type]) ? parseInt(season_types[type][season]) :
+                                        null;
+                                    t.push(s)
+                                }
+                                types[type] = t;
+                            };
+
+                            var series = [];
+                            for (type in types) {
+                                series.push({
+                                    name: TYPES[type].short,
+                                    data: types[type]
+                                });
+                            }
+
+                            $('#by_season').highcharts({
+                                credits: {
+                                    enabled: false
+                                },
+                                chart: {
+                                    type: 'column'
+                                },
+                                title: {
+                                    text: ''
+                                },
+                                xAxis: {
+                                    categories: categories
+                                },
+                                yAxis: {
+                                    min: 0,
+                                    title: {
+                                        text: ''
+                                    },
+                                    stackLabels: {
+                                        enabled: false,
+                                        style: {
+                                            fontWeight: 'bold',
+                                            color: (Highcharts.theme && Highcharts.theme.textColor) ||
+                                                'gray'
+                                        }
+                                    }
+                                },
+                                tooltip: {
+                                    formatter: function() {
+                                        return '<b>' + this.x + '</b><br/>' +
+                                            this.series.name + ': ' + this.y + '<br/>' +
+                                            'Total: ' + this.point.stackTotal;
+                                    }
+                                },
+                                plotOptions: {
+                                    column: {
+                                        stacking: 'normal',
+                                        dataLabels: {
+                                            enabled: false,
+                                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) ||
+                                                'white',
+                                            style: {
+                                                textShadow: '0 0 3px black'
+                                            }
+                                        }
+                                    }
+                                },
+                                series: series
+                            });
+                        });
+                    </script>
+
+
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/bootstrap-slider.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/fileinput.min.js"></script>
+</body>
+
+</html>

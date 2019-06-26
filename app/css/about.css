@@ -1,0 +1,1061 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Roboto', sans-serif;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/*
+=======================================================
+reset css
+=======================================================
+ */
+
+
+/*
+=======================================================
+標頭開始
+=======================================================
+ */
+
+.container {
+    max-width: 1040px;
+    padding: 0 20px;
+}
+
+.navbar-default {
+    background-color: transparent;
+    /*background-color: #ad8541;*/
+    border: none;
+}
+
+.logoImg img {
+    max-width: 100%;
+    width: 157px;
+    height: 39px;
+}
+
+.logoImg {
+    padding: .5%;
+}
+
+.logoImg ul {
+    display: inline-flex;
+}
+
+.navbar-fixed-top .logoImg li:before {
+    content: "  ";
+    color: #a0a9b0;
+    padding: 0 13px 0 7px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar-right a {
+    color: #fff;
+}
+
+a:focus,
+a:hover {
+    color: #eeeae5;
+    text-decoration: none;
+    outline: none;
+}
+
+.navbar-right {
+    font-size: 18px;
+    line-height: 12px;
+    font-weight: 300;
+}
+
+
+/*
+=======================================================
+標頭結束
+=======================================================
+ */
+
+
+/*
+=======================================================
+特效
+=======================================================
+ */
+
+.pixeden {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 63px;
+    margin: auto;
+}
+
+.service-icon {
+    display: block;
+    position: relative;
+    width: 145px;
+    height: 145px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-bottom: 20px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.red-border-bottom {
+    color: #1d479b;
+    font-family: SFCompactDisplayS;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.radiusorange-button {
+    border-radius: 50px;
+    background-color: #fa9d1c;
+    border-color: #fa9d;
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.radiusFB-button {
+    border-radius: 50px;
+}
+
+.radiusB-Text {
+    border-radius: 50px;
+    margin-top: 10px;
+    background-color: #112b64;
+    border-color: #112b64;
+}
+
+.radiusB-Text.placeholder {
+    text-align: center;
+    color: white;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: white;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: white;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    ccolor: white;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: white;
+}
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    color: white;
+}
+
+.box-content {
+    display: inline-block;
+    padding-right: 4%;
+    padding-left: 4%;
+}
+
+.bottom {
+    border-bottom: 1px solid #ffffff;
+    width: 100%;
+}
+
+.right {
+    border-right: 1px solid #f99d1a;
+    height: 30%;
+}
+
+@font-face {
+    font-family: "GeogrotesqueBD";
+    src: url(../fonts/GeogrotesqueCompressed/GEOGROTESQUECOMP-BOLDITALIC.OTF);
+}
+
+@font-face {
+    font-family: "GeogrotesqueBK";
+    src: url(../fonts/GeogrotesqueCompressed/GEOGROTESQUECOMP-BOOKITALIC.OTF);
+}
+
+@font-face {
+    font-family: "GeogrotesqueD";
+    src: url(../fonts/GeogrotesqueCompressed/GEOGROTESQUECOMP-DEMIBOLDITAL.OTF);
+}
+
+@font-face {
+    font-family: "SFCompactDisplayL";
+    src: url(../fonts/SFCompactDisplay/SFCompactDisplay-Light.otf);
+}
+
+@font-face {
+    font-family: "SFCompactDisplayR";
+    src: url(../fonts/SFCompactDisplay/SFCompactDisplay-Regular.otf);
+}
+
+@font-face {
+    font-family: "SFCompactDisplayS";
+    src: url(../fonts/SFCompactDisplay/SFCompactDisplay-Semibold.otf);
+}
+
+.foottitle {
+    font-family: SFCompactDisplayS;
+    font-size: 21px;
+    margin: 10px;
+    color: white;
+}
+
+.footdetail {
+    font-family: SFCompactDisplayR;
+    font-size: 21px;
+    margin: 10px;
+    color: #919296;
+}
+
+.rowblue {
+    color: #1b479d;
+    font-family: SFCompactDisplayS;
+    font-size: 20px;
+}
+
+.rowwhite {
+    color: #ffffff;
+    font-family: SFCompactDisplayS;
+    font-size: 30px;
+}
+
+.roworange {
+    color: #f99c19;
+    font-family: SFCompactDisplayS;
+    font-size: 30px;
+}
+
+.whitecurvediv {
+    top: 93.1%;
+    position: relative;
+}
+
+.downloadfont {
+    font-family: SFCompactDisplayS;
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+
+.time-entry {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: left;
+    background: #1c2939;
+    border: 1px solid #1c2939;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 100;
+    padding: 8%;
+}
+
+.time-entry2 {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 60;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+    background: #1c2939;
+    border: 1px solid #1c2939;
+    padding: 3%;
+    color: #fa9d1a;
+    font-family: SFCompactDisplayS;
+    font-weight: bold;
+}
+
+.memberTotalT {
+    font-family: SFCompactDisplayS;
+    font-size: 16px;
+    color: #adbfd4;
+}
+
+.memberTotalD {
+    font-family: SFCompactDisplayR;
+    color: #67788b;
+}
+
+.memberTotalV {
+    font-family: SFCompactDisplayS;
+    color: #f99d1b;
+    font-size: 21px;
+}
+
+.memberTotalU {
+    font-family: SFCompactDisplayR;
+    color: #67788b;
+}
+
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle),
+.btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btn-group>.btn:last-child:not(:first-child),
+.btn-group>.dropdown-toggle:not(:first-child) {
+    border-radius: 20px;
+    width: 18%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.btn-orange.active {
+    font-family: SFCompactDisplayR;
+    color: #fff;
+    background-color: #fa9d1c;
+    border-color: #fa9d1c;
+    border-width: 2px;
+}
+
+.btn-orangeW {
+    font-family: SFCompactDisplayR;
+    color: #ffffff;
+    background-color: #f99d1b;
+    border-color: #f99d1a;
+    border-width: 2px;
+    font-size: 16px;
+}
+
+.btn-redW {
+    font-family: SFCompactDisplayR;
+    color: #ffffff;
+    background-color: #e72c59;
+    border-color: #e72c59;
+}
+
+.btn-orange {
+    font-family: SFCompactDisplayR;
+    color: #fa9d1b;
+    background-color: rgba(0, 0, 0, .0001);
+    border-width: 2px;
+    border-color: #fa9d1b;
+}
+
+.btn-orange.mouse {
+    font-family: SFCompactDisplayR;
+    color: #fff;
+    background-color: #fa9d1c;
+    border-color: #fccd8c;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    float: left;
+    width: 15px;
+    height: 15px;
+    text-decoration: none;
+    transition: all .3s;
+    border: 1px solid #fa9d1c;
+    border-radius: 50%;
+    margin: 0 4px;
+    color: #dee7ee;
+    background-color: #dee7ee;
+}
+
+.pagination a.active {
+    background-color: #fa9d1c;
+    color: #fa9d1c;
+    border: 1px solid #fa9d1c;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #fa9d1c;
+    color: #fa9d1c;
+}
+
+.totalbg {
+    background-image: url(../images/member/total_bg.png);
+    /* background-color: #cccccc; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    background-position: center;
+    /*  width: 300px;*/
+    /* Do not repeat the image */
+}
+
+.totalTitle {
+    position: absolute;
+    top: 25%;
+    font-size: 21px;
+    width: 90%;
+    text-align: center;
+    font-family: SFCompactDisplayS;
+}
+
+.totalValue {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    width: 90%;
+    text-align: center;
+    font-family: SFCompactDisplayR;
+    color: #ffffff;
+}
+
+.table-striped>tbody>tr:nth-child(odd) {
+    background-color: #f5f8fd;
+}
+
+.table-striped>tbody>tr:hover {
+    background-color: #f99d1b;
+    color: white;
+}
+
+.rowtop {
+    position: relative;
+    top: 150px;
+}
+
+.container {
+    max-width: 810px;
+    padding: 0 20px;
+}
+
+.canvastitle {
+    color: #ffffff;
+    margin-top: 20%;
+    font-family: GeogrotesqueBK;
+    font-size: 20px;
+}
+
+.canvasvalue {
+    color: #b6c8dd;
+    margin-top: 10%;
+    font-size: 60px;
+    font-family: GeogrotesqueBK;
+}
+
+.canvasdetail {
+    color: #8294a8;
+    margin-top: 10%;
+    font-family: SFCompactDisplayR;
+}
+
+.modal-contenttranlate {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-clip: padding-box;
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+.modal-headertranlate {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.modal-footertranlate {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-headertranlate {
+    min-height: 16.43px;
+    padding: 15px;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog-centered {
+        min-height: calc(100% - (1.75rem * 2));
+    }
+}
+
+.modal-dialog-centered {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (0.5rem * 2));
+}
+
+.modal-dialog-Cdiv1 {
+    color: #ffffff;
+    font-size: 30px;
+    font-family: SFCompactDisplayR;
+    font-weight: bold;
+}
+
+.modal-dialog-Cdiv2 {
+    color: #fa9d1a;
+    font-size: 30px;
+    font-family: SFCompactDisplayR;
+    font-weight: bold;
+}
+
+.Textbox {
+    background-color: #1c2939;
+    border-color: #1c2939;
+    color: #f99d1b;
+    border-radius: 10px;
+}
+
+.TextboxTitle {
+    color: #b7c9df;
+    font-size: 20px;
+}
+
+.TextboxDetail {
+    color: #7a8ca0;
+    font-size: 10px;
+}
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #1c2939;
+    border: 1px solid #1c2939;
+    border-radius: 10px;
+}
+
+.selectT {
+    background-color: #1c2939;
+    border-color: #1c2939;
+    color: #f99d1a;
+}
+
+.selectT option {
+    border: 1px solid green;
+    border-bottom: 0;
+    border-top: 0;
+    width: 100px;
+    padding-left: 5px;
+    margin-left: -6px;
+}
+
+
+/* webkit solution */
+
+::-webkit-input-placeholder {
+    text-align: right;
+}
+
+
+/* mozilla solution */
+
+input:-moz-placeholder {
+    text-align: right;
+}
+
+.radio {
+    padding-left: 20px;
+}
+
+.radio label {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    color: #b6c9de;
+    font-family: SFCompactDisplayS;
+    font-size: 16px;
+}
+
+.radio label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    margin-top: -12px;
+    margin-left: -20px;
+    border: 1px solid #f99d1b;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, .0001);
+    -webkit-transition: border 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out;
+}
+
+.radio label::after {
+    display: inline-block;
+    position: absolute;
+    content: " ";
+    width: 34px;
+    height: 34px;
+    left: 3px;
+    top: 3px;
+    margin-left: -20px;
+    margin-top: -12px;
+    border-radius: 5px;
+    background-color: #f99d1b;
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+    transform: scale(0, 0);
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+
+.radio input[type="radio"] {
+    opacity: 0;
+}
+
+.radio input[type="radio"]:focus+label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.radio input[type="radio"]:checked+label::after {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.radio input[type="radio"]:disabled+label {
+    opacity: 0.65;
+}
+
+.radio input[type="radio"]:disabled+label::before {
+    cursor: not-allowed;
+}
+
+.radio.radio-inline {
+    margin-top: 0;
+}
+
+.radio-primary input[type="radio"]+label::after {
+    background-color: #f99d1b;
+}
+
+.radio-primary input[type="radio"]:checked+label::before {
+    border-color: #f99d1b;
+}
+
+.radio-primary input[type="radio"]:checked+label::after {
+    border-color: #f99d1b;
+}
+
+.ResistanceBottonClick {
+    border-radius: 10px;
+    background-color: #f99d1b;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    font-size: 20px;
+    font-family: SFCompactDisplayS;
+    cursor: pointer;
+}
+
+.ResistanceBotton {
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    font-size: 20px;
+    font-family: SFCompactDisplayS;
+    cursor: pointer;
+}
+
+.SaveChangesButton {
+    font-family: SFCompactDisplayR;
+    color: #ffffff;
+    background-color: #f99d1b;
+    border-color: #f99d1a;
+    border-width: 2px;
+    font-size: 16px;
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.deleteButton {
+    width: 200px;
+    height: 40px;
+    padding: 0px;
+    border-radius: 20px;
+}
+
+.deleteButtonT {
+    font-size: 20px;
+    float: left;
+    margin-left: 10px;
+}
+
+.updateImg {
+    width: 15px;
+    float: left;
+    margin-right: 10px;
+}
+
+.containerH {
+    max-width: 1040px;
+    padding: 0 20px;
+}
+
+.containerH {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .containerH {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .containerH {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .containerH {
+        width: 1170px;
+    }
+}
+
+
+/*
+=======================================================
+特效結束
+=======================================================
+ */
+
+
+/*
+=======================================================
+footer
+=======================================================
+ */
+
+.footerStyle {
+    background: url(../images/home/blue_bg.png);
+    padding: 20px 0;
+}
+
+
+/*
+=======================================================
+footer結束
+=======================================================
+ */
+
+
+/*
+=======================================================
+登入的modal
+=======================================================
+ */
+
+.login-facebook {
+    width: 100%;
+    padding: 15px 17px;
+    color: #eee;
+    margin: 7px 0;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.login-facebook:hover {
+    color: #fff;
+}
+
+.login-facebook {
+    background: #3b5998;
+}
+
+.login-facebook span {
+    font-weight: normal;
+    font-size: 17px;
+    -webkit-text-transform: capitalize;
+    -moz-text-transform: capitalize;
+    -ms-text-transform: capitalize;
+    -o-text-transform: capitalize;
+    text-transform: capitalize;
+}
+
+.login-facebook i {
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.loginColor {
+    background-color: #6b767e;
+    color: #fff;
+}
+
+.btn.loginColor:focus {
+    background-color: #6b767e;
+    color: #fff;
+    outline: none;
+}
+
+.btn.loginColor:hover {
+    background-color: #fff;
+    color: #6b767e;
+    font-weight: 600;
+    border: 1px solid #6b767e;
+    outline: none;
+}
+
+.or {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.errorMsg,
+.errorPassword {
+    color: red;
+    padding-top: 10px;
+}
+
+.errorMsg a:hover {
+    color: #337ab7;
+}
+
+
+/*
+=======================================================
+登入的modal
+=======================================================
+ */
+
+
+/*
+=======================================================
+註冊的modal
+=======================================================
+ */
+
+.signUpMsg {
+    padding: 8px 0 0 5px;
+    color: red;
+}
+
+.signUpDone {
+    font-size: 22px;
+    color: green;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+/*
+=======================================================
+註冊的modal
+=======================================================
+ */
+
+
+/*
+=======================================================
+首頁圖
+=======================================================
+ */
+
+.mainBg {
+    /* background: url(../video/FDF-Header-Video-BlueOverlay.mp4) center right fixed no-repeat;*/
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: 40% 70%;
+    width: 100%;
+    /*   height: 100%;*/
+}
+
+
+/*
+=======================================================
+首頁圖
+=======================================================
+*/
+
+@media(max-width: 768px) {
+    .mainBg {
+        /*background: url(../images/start_bg_web.jpg) center center fixed no-repeat;*/
+        -moz-background-size: cover;
+        background-position: 23%;
+        background-size: 178% 100%;
+        width: 100%;
+        /*    height: 100%;*/
+    }
+}

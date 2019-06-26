@@ -1,0 +1,762 @@
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="application/x-www-form-urlencoded; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人資料</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/indexNavPill.css">
+
+
+</head>
+
+<body>
+
+
+
+    <header style="height: 20%;">
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+            <a href="index.html" class="navbar-brand" style="width: 130px;height: 40px;">
+                <img src="../images/logo_white.png" alt="首頁logo" style="width: 100%;height:  100%;">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Logs.html">Logs
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="History.html">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rankings.html">Rankings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="TRAININGPARTERS.html">TrainingParters</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">年紀錄</a>
+                    </li>
+                    <li class="nav-item dropdown  active">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">個人資料</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="profile.html">帳號資訊</a>
+                            <a class="dropdown-item  logOut" href="../index.html">登出</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container default">
+        <div class="row">
+            <main class="two_column">
+                <section class="content col-md-8">
+
+
+                    <h2>Add Workout</h2>
+
+
+                    <form method="POST" action="https://log.concept2.com/log" accept-charset="UTF-8" class="js-once">
+                        <input name="_token" type="hidden" value="Yr16Ql5Ppi1qZB9za57mMXC3G7aKPeaXjKtgxMkx">
+
+                        <div class="form-group row">
+                            <label for="date" class="col-sm-3 col-xs-4 control-label">Date</label>
+                            <div class="col-sm-4 col-xs-8">
+                                <div class="input-group date" data-type="date">
+                                    <input class="form-control" name="date" type="text" value="07/23/2018" id="date">
+                                    <span class="input-group-addon">
+                                        <i class="icon-calendar icon-fw"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="type" class="col-sm-3 col-xs-4 control-label">Type</label>
+                            <div class="col-sm-4 col-xs-8">
+                                <select class="form-control js-ranking-event" id="type" name="type">
+                                    <option value="1" selected="selected">Indoor Rower</option>
+                                    <option value="2">Indoor Rower with Slides</option>
+                                    <option value="3">Dynamic Indoor Rower</option>
+                                    <option value="4">SkiErg</option>
+                                    <option value="8">BikeErg</option>
+                                    <option value="5">Paddle Adapter</option>
+                                    <option value="6">On-water</option>
+                                    <option value="7">On-snow</option>
+                                    <option value="11">Rollerski</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="distance" class="col-sm-3 col-xs-4 control-label">Distance</label>
+                            <div class="col-sm-4 col-xs-8">
+                                <div class="input-group">
+                                    <input pattern="[0-9,]*" min="0" data-type="number" class="form-control distance js-ranking-event" oninvalid="this.setCustomValidity('Please make sure you only enter numbers here')" oninput="setCustomValidity('')" name="distance" type="text" id="distance">
+                                    <div class="input-group-addon">meters</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="hours" class="col-sm-3 hidden-xs control-label">Time</label>
+                            <div class="col-xs-3 col-sm-2" style="max-width: 130px">
+                                <input pattern="[0-9,]*" min="0" data-type="number" class="form-control hours js-ranking-event" placeholder="Hours" name="hours" type="text" id="hours">
+                                <label for="hours" class="control-label visible-xs">Hours</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-2" style="max-width: 130px">
+                                <input pattern="[0-9,]*" min="0" data-type="number" class="form-control minutes js-ranking-event" placeholder="Minutes" name="minutes" type="text">
+                                <label for="hours" class="control-label visible-xs">Minutes</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-2" style="max-width: 130px">
+                                <input pattern="[0-9,]*" min="0" data-type="number" class="form-control seconds js-ranking-event" placeholder="Seconds" maxlength="2" name="seconds" type="text">
+                                <label for="hours" class="control-label visible-xs">Seconds</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-2" style="max-width: 130px">
+                                <input pattern="[0-9,]*" min="0" data-type="number" class="form-control tenths js-ranking-event" placeholder="Tenths" maxlength="1" name="tenths" type="text">
+                                <label for="hours" class="control-label visible-xs">Tenths</label>
+                            </div>
+                        </div>
+                        <div class="form-group row" id="weight_class_row">
+                            <div class="col-sm-3 col-xs-4 control-label">
+                                <strong>Weight Class</strong>
+                                <i class="icon-help" data-container="body" data-toggle="popover" data-placement="right" data-title="Weight Categories" data-content="Below are the definitions for lightweight and heavyweight for men and women. These weight categories only apply to indoor rowing.<br><br>Lightweight Women: <= 135lbs (61.5kg)<br>Heavyweight Women: > 135 lbs (61.6kg)<br>Lightweight Men <= 165lbs (75kg)<br>Heavyweight Men > 165lbs (75kg)"
+                                    data-html="true" data-original-title="" title=""></i>
+                            </div>
+                            <div class="col-sm-4 col-xs-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-default ">
+                                        <input name="weight_class" type="radio" value="H"> Hwt
+                                    </label>
+                                    <label class="btn btn-default active">
+                                        <input checked="checked" name="weight_class" type="radio" value="L"> Lwt
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="comments" class="col-sm-3 col-xs-4 control-label">Comments</label>
+                            <div class="col-sm-6 col-xs-8">
+                                <textarea class="form-control" id="comments" rows="3" name="comments" cols="50" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 71px;"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row verification-code-row hidden">
+                            <label class="col-sm-3 col-xs-4 control-label" for="verification_code">Verification Code
+                                <i class="icon-help" data-container="body" data-toggle="popover" data-placement="right"
+                                    data-title="Verification Code" data-content="If you want to rank this piece, you may want to verify it. Verification is not required to rank a workout. If you use a PM3, PM4 or PM5 monitor you can get a 16-digit verification code from the monitor (<a href=&quot;http://www.concept2.com/service/monitors/pm3/how-to-use/viewing-verification-code&quot; target=&quot;_blank&quot;>instructions here</a>). There is no need to add a code if you do not want to rank your workout."
+                                    data-html="true" data-original-title="" title=""></i>
+                            </label>
+                            <div class="col-sm-6 col-xs-8">
+                                <input class="form-control verification_code" name="verification_code" type="text" maxlength="19">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="submit" class="btn btn-default js-change">Submit</button>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="format" data-format="date" value="m/d/Y">
+
+                    </form>
+
+                    <div class="log-workouts">
+
+                        <div class="row">
+
+                            <h2>Latest Workouts</h2>
+
+                            <div class="log-actions">
+                                <div class="col-md-3">
+                                    <a class="btn btn-default btn-sm" href="http://www.ihoin.com/sportyeejeeDemo/app/member/SeasonHistory.html">
+                                        <i class="icon-table"></i> View Season</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a class="btn btn-default btn-sm" href="https://log.concept2.com/season/2019/months">
+                                        <i class="icon-bar-chart"></i> Season Summary</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a class="btn btn-default btn-sm" href="https://log.concept2.com/history">
+                                        <i class="icon-archive"></i> All History</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table" id="log-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Distance</th>
+                                    <th>Time</th>
+                                    <th class="hidden-xxs">Pace</th>
+                                    <th class="hidden-xs">Type</th>
+                                    <th class="hidden-xs hidden-md">Weight</th>
+                                    <th class="hidden-xxs">Comments</th>
+                                    <th>Rank</th>
+                                    <th colspan="2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td nowrap="">07/03/18</td>
+                                    <td nowrap="">12,345m</td>
+                                    <td nowrap="">1:35:55.2</td>
+                                    <td nowrap="" class="hidden-xxs">3:53.1</td>
+                                    <td nowrap="" class="hidden-xs">Rower</td>
+                                    <td nowrap="" class="hidden-xs hidden-md">Lwt</td>
+                                    <td class="comments hidden-xxs">
+                                        <p>hello</p>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="https://log.concept2.com/profile/1202992/log/34010998">
+                                            <i class="icon-view" title="View" aria-hidden="true"></i>
+                                            <span class="sr-only">View workout</span>
+                                        </a>
+                                    </td>
+                                    <td class="text-center hidden-xxs">
+                                        <a href="https://log.concept2.com/profile/1202992/log/34010998/edit">
+                                            <i class="icon-edit" title="Edit" aria-hidden="true"></i>
+                                            <span class="sr-only">Edit workout</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </section>
+                <section class="sidebar col-md-4">
+
+                    <div class="log-sidebar">
+                        <div class="stats">
+                            <div class="stat ">
+                                <div class="stat__figure">
+                                    <span>12,345</span>
+                                </div>
+                                <div class="stat__name">
+                                    Lifetime Meters
+                                </div>
+                            </div>
+                            <div class="stat ">
+                                <div class="stat__figure">
+                                    <span>12,345</span>
+                                </div>
+                                <div class="stat__name">
+                                    Season Meters
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- This is only shown if viewing your own log, not somebody else's //-->
+
+
+
+                        <h4>Last 30 Days Activity</h4>
+
+                        <div id="last_30_days_time" class="log-chart hidden" data-highcharts-chart="0" style="">
+                            <div id="highcharts-wssb69t-0" class="highcharts-container " style="position: relative; overflow: hidden; width: 310px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                <svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="310" height="150" viewBox="0 0 310 150">
+                                    <desc>Created with Highcharts 5.0.14</desc>
+                                    <defs>
+                                        <clipPath id="highcharts-wssb69t-1">
+                                            <rect x="0" y="0" width="233" height="103" fill="none"></rect>
+                                        </clipPath>
+                                    </defs>
+                                    <rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="310" height="150"
+                                        rx="0" ry="0"></rect>
+                                    <rect fill="none" class="highcharts-plot-background" x="67" y="10" width="233"
+                                        height="103"></rect>
+                                    <g class="highcharts-grid highcharts-xaxis-grid ">
+                                        <path fill="none" class="highcharts-grid-line" d="M 72.5 10 L 72.5 113" opacity="1"></path>
+                                        <path fill="none" class="highcharts-grid-line" d="M 293.5 10 L 293.5 113"
+                                            opacity="1"></path>
+                                    </g>
+                                    <g class="highcharts-grid highcharts-yaxis-grid ">
+                                        <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+                                            d="M 67 113.5 L 300 113.5" opacity="1"></path>
+                                        <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+                                            d="M 67 62.5 L 300 62.5" opacity="1"></path>
+                                        <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+                                            d="M 67 9.5 L 300 9.5" opacity="1"></path>
+                                    </g>
+                                    <rect fill="none" class="highcharts-plot-border" x="67" y="10" width="233" height="103"></rect>
+                                    <g class="highcharts-axis highcharts-xaxis ">
+                                        <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 72.5 113 L 72.5 123"
+                                            opacity="1"></path>
+                                        <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 293.5 113 L 293.5 123"
+                                            opacity="1"></path>
+                                        <path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1"
+                                            d="M 67 113.5 L 300 113.5"></path>
+                                    </g>
+                                    <g class="highcharts-axis highcharts-yaxis ">
+                                        <path fill="none" class="highcharts-axis-line" d="M 67 10 L 67 113"></path>
+                                    </g>
+                                    <g class="highcharts-series-group">
+                                        <g class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-color-undefined highcharts-tracker"
+                                            transform="translate(67,10) scale(1 1)" clip-path="url(#highcharts-wssb69t-1)">
+                                            <rect x="4" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="12" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="19" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="27" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="35" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="42" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="50" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="58" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="65" y="42" width="4" height="62" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="73" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="80" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="88" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="96" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="103" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="111" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="118" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="126" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="134" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="141" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="149" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="157" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="164" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="172" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="179" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="187" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="195" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="202" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="210" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="218" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                            <rect x="225" y="104" width="4" height="0" fill="#7D9BC1" class="highcharts-point"></rect>
+                                        </g>
+                                        <g class="highcharts-markers highcharts-series-0 highcharts-column-series highcharts-color-undefined "
+                                            transform="translate(67,10) scale(1 1)" clip-path="none"></g>
+                                    </g>
+                                    <g class="highcharts-axis-labels highcharts-xaxis-labels ">
+                                        <text x="73.0192969131399" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="middle" transform="translate(0,0)" y="132" opacity="1">
+                                            <tspan>25 Jun</tspan>
+                                        </text>
+                                        <text x="284.59375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="middle" transform="translate(0,0)" y="132" opacity="1">
+                                            <tspan>24 Jul</tspan>
+                                        </text>
+                                    </g>
+                                    <g class="highcharts-axis-labels highcharts-yaxis-labels ">
+                                        <text x="52" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="end" transform="translate(0,0)" y="117" opacity="1">
+                                            <tspan>0:00</tspan>
+                                        </text>
+                                        <text x="52" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="end" transform="translate(0,0)" y="66" opacity="1">
+                                            <tspan>1:20:00</tspan>
+                                        </text>
+                                        <text x="52" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="end" transform="translate(0,0)" y="14" opacity="1">
+                                            <tspan>2:40:00</tspan>
+                                        </text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="last_30_days_distance" class="log-chart" data-highcharts-chart="1">
+                            <div id="highcharts-wssb69t-2" class="highcharts-container " style="position: relative; overflow: hidden; width: 310px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                <svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="310" height="150" viewBox="0 0 310 150">
+                                    <desc>Created with Highcharts 5.0.14</desc>
+                                    <defs>
+                                        <clipPath id="highcharts-wssb69t-3">
+                                            <rect x="0" y="0" width="254" height="103" fill="none"></rect>
+                                        </clipPath>
+                                    </defs>
+                                    <rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="310" height="150"
+                                        rx="0" ry="0"></rect>
+                                    <rect fill="none" class="highcharts-plot-background" x="46" y="10" width="254"
+                                        height="103"></rect>
+                                    <g class="highcharts-grid highcharts-xaxis-grid ">
+                                        <path fill="none" class="highcharts-grid-line" d="M 52.5 10 L 52.5 113" opacity="1"></path>
+                                        <path fill="none" class="highcharts-grid-line" d="M 292.5 10 L 292.5 113"
+                                            opacity="1"></path>
+                                    </g>
+                                    <g class="highcharts-grid highcharts-yaxis-grid ">
+                                        <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+                                            d="M 46 113.5 L 300 113.5" opacity="1"></path>
+                                        <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+                                            d="M 46 62.5 L 300 62.5" opacity="1"></path>
+                                        <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+                                            d="M 46 9.5 L 300 9.5" opacity="1"></path>
+                                    </g>
+                                    <rect fill="none" class="highcharts-plot-border" x="46" y="10" width="254" height="103"></rect>
+                                    <g class="highcharts-axis highcharts-xaxis ">
+                                        <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 52.5 113 L 52.5 123"
+                                            opacity="1"></path>
+                                        <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 292.5 113 L 292.5 123"
+                                            opacity="1"></path>
+                                        <path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1"
+                                            d="M 46 113.5 L 300 113.5"></path>
+                                    </g>
+                                    <g class="highcharts-axis highcharts-yaxis ">
+                                        <path fill="none" class="highcharts-axis-line" d="M 46 10 L 46 113"></path>
+                                    </g>
+                                    <g class="highcharts-series-group">
+                                        <g class="highcharts-series highcharts-series-0 highcharts-column-series highcharts-color-undefined highcharts-tracker"
+                                            transform="translate(46,10) scale(1 1)" clip-path="url(#highcharts-wssb69t-3)">
+                                            <rect x="5" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="13" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="21" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="29" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="38" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="46" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="54" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="63" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="71" y="40" width="4" height="64" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="79" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="88" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="96" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="104" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="113" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="121" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="129" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="137" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="146" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="154" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="162" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="171" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="179" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="187" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="196" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="204" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="212" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="221" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="229" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="237" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                            <rect x="245" y="104" width="4" height="0" fill="#003A70" class="highcharts-point"></rect>
+                                        </g>
+                                        <g class="highcharts-markers highcharts-series-0 highcharts-column-series highcharts-color-undefined "
+                                            transform="translate(46,10) scale(1 1)" clip-path="none"></g>
+                                    </g>
+                                    <g class="highcharts-axis-labels highcharts-xaxis-labels ">
+                                        <text x="52.56181201682488" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="middle" transform="translate(0,0)" y="132" opacity="1">
+                                            <tspan>25 Jun</tspan>
+                                        </text>
+                                        <text x="284.59375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="middle" transform="translate(0,0)" y="132" opacity="1">
+                                            <tspan>24 Jul</tspan>
+                                        </text>
+                                    </g>
+                                    <g class="highcharts-axis-labels highcharts-yaxis-labels ">
+                                        <text x="31" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="end" transform="translate(0,0)" y="117" opacity="1">
+                                            <tspan>0</tspan>
+                                        </text>
+                                        <text x="31" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="end" transform="translate(0,0)" y="66" opacity="1">
+                                            <tspan>10k</tspan>
+                                        </text>
+                                        <text x="31" style="color:#666666;cursor:default;font-size:11px;fill:#666666;"
+                                            text-anchor="end" transform="translate(0,0)" y="14" opacity="1">
+                                            <tspan>20k</tspan>
+                                        </text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-xs btn-default" id="time">
+                                    <input type="radio" name="graph-type" autocomplete="off" checked=""> Time
+                                </label>
+                                <label class="btn btn-xs btn-default active" id="distance">
+                                    <input type="radio" name="graph-type" autocomplete="off"> Distance
+                                </label>
+                            </div>
+                        </div>
+
+                        <script>
+                            $(function() {
+
+                                var data = {
+                                    "2018-07-03": {
+                                        "day": "2018-07-03",
+                                        "time": "57552",
+                                        "distance": "12345"
+                                    }
+                                }
+                                var time = [];
+                                var distance = [];
+                                var format = 'YYYY-MM-DD';
+                                var settings = {};
+
+                                for (i = 1; i <= 30; i++) {
+                                    var day = moment().subtract(30 - i, 'days');
+                                    var t = (day.format(format) in data) ? parseInt(data[day.format(format)].time) :
+                                        0;
+                                    var d = (day.format(format) in data) ? parseInt(data[day.format(format)].distance) :
+                                        0;
+                                    time.push([day.valueOf(), t]);
+                                    distance.push([day.valueOf(), d]);
+                                }
+
+                                settings.default = {
+                                    chart: {
+                                        type: 'column'
+                                    },
+                                    title: {
+                                        text: ''
+                                    },
+                                    credits: {
+                                        enabled: false
+                                    },
+                                    legend: {
+                                        enabled: false
+                                    },
+                                    yAxis: {
+                                        min: 0,
+                                        title: ''
+                                    },
+                                    xAxis: {
+                                        labels: {
+                                            formatter: function() {
+                                                return moment(this.value).format("DD MMM");
+                                            }
+                                        },
+                                        type: 'datetime',
+                                        tickPositioner: function() {
+                                            var ticks = [
+                                                moment().subtract(29, 'days').valueOf(),
+                                                moment().valueOf()
+                                            ];
+                                            ticks.info = {
+                                                unitName: "day", //unitName: "day",
+                                                higherRanks: {} // Omitting this would break things
+                                            };
+                                            return ticks;
+                                        }
+                                    },
+                                    plotOptions: {
+                                        column: {
+                                            pointPadding: 0.1,
+                                            borderWidth: 0,
+                                        }
+                                    }
+                                }
+
+                                settings.time = {
+                                    chart: {
+                                        renderTo: 'last_30_days_time',
+                                    },
+                                    yAxis: {
+                                        labels: {
+                                            formatter: function() {
+                                                return (this.value).toTimeString();
+                                            }
+                                        },
+                                        tickInterval: 6000,
+                                        tickAmount: 3,
+                                    },
+                                    tooltip: {
+                                        headerFormat: '',
+                                        pointFormatter: function() {
+                                            var day = moment(this.x).format("DD MMM");
+                                            var time = (this.y).toTimeString();
+                                            return '<small>' + day + '</small><br>Time: <b>' + time +
+                                                '</b>';
+                                        }
+                                    },
+                                    plotOptions: {
+                                        column: {
+                                            color: LIGHT_BLUE
+                                        }
+                                    },
+                                    series: [{
+                                        name: 'Time',
+                                        data: time
+
+                                    }]
+                                }
+
+                                settings.distance = {
+                                    chart: {
+                                        renderTo: 'last_30_days_distance',
+                                    },
+                                    tooltip: {
+                                        headerFormat: '',
+                                        pointFormatter: function() {
+                                            var day = moment(this.x).format("DD MMM");
+                                            return '<small>' + day + '</small><br>Distance: <b>' + this
+                                                .y + 'm</b>';
+                                        }
+                                    },
+                                    plotOptions: {
+                                        column: {
+                                            color: DARK_BLUE
+                                        }
+                                    },
+                                    series: [{
+                                        name: 'Distance',
+                                        data: distance
+
+                                    }]
+                                }
+
+                                settings.time = $.extend(true, {}, settings.default, settings.time);
+                                settings.distance = $.extend(true, {}, settings.default, settings.distance);
+
+                                var chart_time = Highcharts.chart(settings.time);
+                                var chart_distance = Highcharts.chart(settings.distance);
+
+                                $('#time').click(function() {
+                                    $('#last_30_days_distance').addClass('hidden');
+                                    $('#last_30_days_time').removeClass('hidden');
+                                    chart_time.reflow();
+                                    Cookies.set('last_30', 'time');
+                                });
+
+                                $('#distance').click(function() {
+                                    $('#last_30_days_distance').removeClass('hidden');
+                                    $('#last_30_days_time').addClass('hidden');
+                                    chart_distance.reflow();
+                                    Cookies.set('last_30', 'distance');
+                                });
+
+                            });
+                        </script>
+
+
+                        <div class="log-challenges">
+                            <h4>Latest Challenges</h4>
+                            <table class="table table-condensed table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>Dog Days Of Summer</td>
+                                        <td nowrap="">August 1–28</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                <a href="https://log.concept2.com/challenges">View Challenges</a>
+                            </p>
+                        </div>
+
+                        <div class="log-blog">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <h4>Concept2 Blog</h4>
+                                    <table class="table table-condensed">
+                                        <tbody>
+                                            <tr>
+                                                <td nowrap="">
+                                                    Jul 20
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/sadie-bjornsen-skierg-and-secret-opportunities" target="_blank">Sadie Bjornsen on the SkiErg and Secret
+                                                        Opportunities</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap="">
+                                                    Jul 12
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/10-questions-pat-gilles" target="_blank">10 Questions with Pat Gilles</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap="">
+                                                    Jul 11
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/too-hot-to-train-outside" target="_blank">Too Hot to Train Outside?</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td nowrap="">
+                                                    Jul 9
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/buyer-beware" target="_blank">Buyer
+                                                        Beware</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="hidden-xs">
+                                                <td nowrap="">
+                                                    Jul 2
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/best-rowing-machine-workouts" target="_blank">The Best Rowing Machine Workouts</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="hidden-xs">
+                                                <td nowrap="">
+                                                    Jun 28
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/bikeerg-cycling-class" target="_blank">BikeErg Cycling Class</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="hidden-xs">
+                                                <td nowrap="">
+                                                    Jun 25
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/new-adaptive-record-categories" target="_blank">New Adaptive Record Categories</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="hidden-xs">
+                                                <td nowrap="">
+                                                    Jun 19
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/skierg-technique" target="_blank">SkiErg
+                                                        Technique</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="hidden-xs">
+                                                <td nowrap="">
+                                                    Jun 8
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/kids-rowing" target="_blank">Kids
+                                                        Rowing</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="hidden-xs">
+                                                <td nowrap="">
+                                                    Jun 6
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.concept2.com/news/what-erg" target="_blank">What
+                                                        is an Erg?</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+            </main>
+        </div>
+    </div>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+</body>
+
+</html>

@@ -14,43 +14,46 @@ function checkCookie() {
 登入頁面
 ============================================================================
 */
-var url = 'http://35.167.221.25:8080/';
+var url = 'http://34.216.81.49:9004/';
 //使用 userlogin 取得登入資料，這裡單純 ajax 登入後取得 userName token 資料
 function userLogin() {
     var $userNameLogin = $('#userLogInName').val();
     var $passwordLogin = $('#userLogInPassword').val()
     $.ajax({
-        type: 'POST',
-        url: url + 'cpLogin',
-        dataType: 'json',
-        data: {
-            cpAcc: $userNameLogin,
-            cpPassword: $passwordLogin
-        },
-        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-        crossDomain: true,
+            type: 'POST',
+            url: url + 'cpLogin',
+            dataType: 'json',
+            data: {
+                cpAcc: $userNameLogin,
+                cpPassword: $passwordLogin
+            },
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            crossDomain: true,
             xhrFields: {
                 withCredentials: true
-            },
-        beforeSend: function(){
-            $('#logInBtn').button('loading');
-        },
-        complete: function(){
-            $('#logInBtn').button('reset');
-        }
+            }
         })
-        .done(function (data) {
+        .done(function(data) {
             console.log(data);
             var errorMsg = '';
             if (data.result === 'false') {
-                errorMsg += '<div class="alert alert-danger" role="alert">';
-                errorMsg += '請檢查您的帳戶和密碼。</div>'
-                $('.errorMsg').html(errorMsg);
-                $('#login').on('hidden.bs.modal', function () {
+                if (data.data.event === 'password fail') {
+                    errorMsg += '<p>密碼錯誤</p>';
+                    $('.errorMsg').html('');
+                    $('.errorPassword').html(errorMsg);
+                } else {
+                    errorMsg += '<p>找不到您的帳戶資料，如您已申請過帳戶，請通知管理員或前往 ';
+                    errorMsg += '<a data-dismiss="modal" data-toggle="modal" href="#signup"> 註冊</a></p>';
+                    $('.errorPassword').html('');
+                    $('.errorMsg').html(errorMsg);
+                }
+
+                $('#login')
+                    .on('hidden.bs.modal', function() {
                         $('#userLogInName').val('');
                         $('#userLogInPassword').val('')
                         $('.errorMsg').html('');
-                })
+                    })
             } else {
                 loginData = {
                     userName: $userNameLogin,
@@ -69,7 +72,7 @@ function userLogin() {
 // 取得 user 的個人資料，當 user 登入後會先抓一次 profileGet api ，如果個人資料有 null 時會再導入 profileSet
 // api ，讓 user 去設定個人資料 反之直接登入
 function getProfile() {
-    userLogin(function (err, loginData) {
+    userLogin(function(err, loginData) {
         console.log(loginData);
 
         /*
@@ -150,41 +153,43 @@ function getProfile() {
 
 }
 
-$('#userLogInForm').submit(function () {
-    getProfile();
-    return false;
-});
+$('#userLogInForm')
+    .submit(function() {
+        getProfile();
+
+        return false;
+    });
 // user 輸入完整的帳號密碼後，登入的 button 才可以按
-$('#userLogInForm').on('focus input', function () {
-    if ($('#userLogInName').val() !== '' && $('#userLogInPassword').val() !== '') {
-        $('#userLogInForm :input[type="submit"]').prop('disabled', false);
-    } else {
-        $('#userLogInForm :input[type="submit"]').prop('disabled', true);
-        $('.errorMsg').html('');
-    }
-})
-// user 輸入完整的個人資料後開啟 button 按鈕
-$('#informationForm').on('focus input', function () {
-    if ($('#uAge').val() !== '' && $('#uHeight').val() !== '' && $('#uWeight').val() !== '') {
-        $('#informationForm :input[type="submit"]').prop('disabled', false);
-        //因 api 的年齡格式長度為 2 ，故加個判定
-        if ($('#uAge').val().length <= 2 || $('#uAge').val() === '') {
+$('#userLogInForm').on('focus input', function() {
+        if ($('#userLogInName').val() !== '' && $('#userLogInPassword').val() !== '') {
+            $('#userLogInForm :input[type="submit"]').prop('disabled', false);
+        } else {
+            $('#userLogInForm :input[type="submit"]').prop('disabled', true);
             $('.errorMsg').html('');
         }
-    } else {
-        $('#informationForm :input[type="submit"]').prop('disabled', true);
-    }
-})
-/*
-============================================================================
-登入頁面
-============================================================================
-*/
-/*
-============================================================================
-註冊頁面
-============================================================================
-*/
+    })
+    // user 輸入完整的個人資料後開啟 button 按鈕
+$('#informationForm').on('focus input', function() {
+        if ($('#uAge').val() !== '' && $('#uHeight').val() !== '' && $('#uWeight').val() !== '') {
+            $('#informationForm :input[type="submit"]').prop('disabled', false);
+            //因 api 的年齡格式長度為 2 ，故加個判定
+            if ($('#uAge').val().length <= 2 || $('#uAge').val() === '') {
+                $('.errorMsg').html('');
+            }
+        } else {
+            $('#informationForm :input[type="submit"]').prop('disabled', true);
+        }
+    })
+    /*
+    ============================================================================
+    登入頁面
+    ============================================================================
+    */
+    /*
+    ============================================================================
+    註冊頁面
+    ============================================================================
+    */
 
 //這裡單純 ajax 註冊
 function userSignUp(cb) {
@@ -195,85 +200,89 @@ function userSignUp(cb) {
     var $cpType = $('#cpType').val();
     var $others = $('#others').val();
     $.ajax({
-        type: 'POST',
-        url: url + 'cpDataSet',
-        dataType: 'json',
-        data: {
-            cpAcc: $userNameSignUp,
-            cpPassword: $passwordSignUp,
-            cpName: $cpName,
-            taxID: $taxID,
-            cpType: $cpType,
-            others: $others
+            type: 'POST',
+            url: url + 'cpDataSet',
+            dataType: 'json',
+            data: {
+                cpAcc: $userNameSignUp,
+                cpPassword: $passwordSignUp,
+                cpName: $cpName,
+                taxID: $taxID,
+                cpType: $cpType,
+                others: $others
 
-        },
+            },
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             crossDomain: true,
             xhrFields: {
                 withCredentials: true
-        }
-    })
-    .done(function (data) {
-        console.log(data)
-        var signUpMsg = '';
-        if (data.result === 'true' && data.data.event === 'cpDataSet success') {
-            signUpMsg += '帳戶已申請成功';
-            $('.signUpDone').html(signUpMsg);
-            $('.signUpMsg').html('');
-            $('.taxIdMsg').html('');
-            cb(null, data);
-            $('#signup').on('hidden.bs.modal', function () {
-                $('#username').val('');
-                $('#password').val('');
-                $('.signUpDone').html('');
-            })
-        } else if (data.result === 'false' && data.data.event === 'cpDataSet fail') {
-            if ($taxID.length !== 8) {
-                signUpMsg += '請輸入完整的統一編號(需八碼)';
-                $('.taxIdMsg').html(signUpMsg);
-            } else {
-                signUpMsg += '此帳號已被使用';
-                $('.signUpMsg').html(signUpMsg);
-                $('.signUpDone').html('');
-                $('.taxIdMsg').html('');
             }
-        } else {
-            cb(null, data)
-        }
-    })
+        })
+        .done(function(data) {
+            console.log(data)
+            var signUpMsg = '';
+            if (data.result === 'true' && data.data.event === 'cpDataSet success') {
+                signUpMsg += '帳戶已申請成功';
+                $('.signUpDone').html(signUpMsg);
+                $('.signUpMsg').html('');
+                $('.taxIdMsg').html('');
+                cb(null, data);
+                $('#signup').on('hidden.bs.modal', function() {
+                    $('#username').val('');
+                    $('#password').val('');
+                    $('.signUpDone').html('');
+                })
+            } else if (data.result === 'false' && data.data.event === 'cpDataSet fail') {
+                if ($taxID.length !== 8) {
+                    signUpMsg += '請輸入完整的統一編號(需八碼)';
+                    $('.taxIdMsg').html(signUpMsg);
+                } else {
+                    signUpMsg += '此帳號已被使用';
+                    $('.signUpMsg').html(signUpMsg);
+                    $('.signUpDone').html('');
+                    $('.taxIdMsg').html('');
+                }
+            } else {
+                cb(null, data)
+            }
+
+        })
 }
 
-$('#userSignUpForm').on('focus input', function () {
-    if ($('#username').val() === '') {
-        $('.signUpMsg').html('');
-        $('.signUpDone').html('');
-        $('#userSignUpForm :input[type="submit"]').prop('disabled', true);
-    } else {
-        $('#userSignUpForm :input[type="submit"]').prop('disabled', false);
-    }
-})
-$('#userSignUpForm').submit(function () {
-    userSignUp(function (err, data) {
-        console.log(data);
+$('#userSignUpForm')
+    .on('focus input', function() {
+        if ($('#username').val() === '') {
+            $('.signUpMsg').html('');
+            $('.signUpDone').html('');
+            $('#userSignUpForm :input[type="submit"]').prop('disabled', true);
+        } else {
+            $('#userSignUpForm :input[type="submit"]').prop('disabled', false);
+        }
     })
-    return false;
-})
-/*
-============================================================================
-註冊頁面
-============================================================================
-*/
-$(function () {
+$('#userSignUpForm').submit(function() {
+        userSignUp(function(err, data) {
+            console.log(data);
+        })
+        return false;
+    })
+    /*
+    ============================================================================
+    註冊頁面
+    ============================================================================
+    */
+$(function() {
     checkCookie()
     $('#userSignUpForm :input[type="submit"]').prop('disabled', true);
     $('#userLogInForm :input[type="submit"]').prop('disabled', true);
     $('#informationForm :input[type="submit"]').prop('disabled', true);
     var socket = io.connect('http://35.167.221.25:3005');
-    socket.on('onEvent1', function (data) {
+    socket.on('onEvent1', function(data) {
         console.log(data);
-        socket.emit('TestEcho', {my: 'data'});
+        socket.emit('TestEcho', {
+            my: 'data'
+        });
     });
-    socket.on('onTestEcho', function (data) {
+    socket.on('onTestEcho', function(data) {
         console.log(data.data.my);
     });
 });

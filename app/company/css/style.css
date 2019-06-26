@@ -281,16 +281,6 @@ a:hover {
     color: #337ab7;
 }
 
-label {
-    display: inline-block;
-    margin-bottom: .5rem;
-}
-
-#login .modal-footer {
-    text-align: left;
-    padding: 0;
-}
-
 
 /*
 =======================================================
@@ -349,7 +339,6 @@ label {
 首頁圖
 =======================================================
 */
-
 
 /*
 廠商的 style

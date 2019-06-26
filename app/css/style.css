@@ -152,7 +152,8 @@ reset css
 }
 
 .navbar-default {
-    background-color: #6b767e;
+    background-color: transparent;
+    /*background-color: #ad8541;*/
     border: none;
 }
 
@@ -162,18 +163,15 @@ reset css
     height: 39px;
 }
 
-.logoImg,
-.navBarStyle {
+.logoImg {
     padding: .5%;
 }
 
-.logoImg ul,
-.navBarStyle ul {
+.logoImg ul {
     display: inline-flex;
 }
 
-.navbar-fixed-top .logoImg li:before,
-.navbar-fixed-top .navBarStyle li:before {
+.navbar-fixed-top .logoImg li:before {
     content: "/";
     color: #a0a9b0;
     padding: 0 13px 0 7px;
@@ -187,7 +185,7 @@ reset css
 
 a:focus,
 a:hover {
-    color: #fff;
+    color: #eeeae5;
     text-decoration: none;
     outline: none;
 }
@@ -208,23 +206,223 @@ a:hover {
 
 /*
 =======================================================
+特效
+=======================================================
+ */
+
+.pixeden {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 63px;
+    margin: auto;
+}
+
+.service-icon {
+    display: block;
+    position: relative;
+    width: 145px;
+    height: 145px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-bottom: 20px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.red-border-bottom {
+    color: #1d479b;
+    font-family: SFCompactDisplayS;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.radiusorange-button {
+    border-radius: 50px;
+    background-color: #fa9d1c;
+    border-color: #fa9d;
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.radiusFB-button {
+    border-radius: 50px;
+}
+
+.radiusB-Text {
+    border-radius: 50px;
+    margin-top: 10px;
+    background-color: #112b64;
+    border-color: #112b64;
+}
+
+.radiusB-Text.placeholder {
+    text-align: center;
+    color: white;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: white;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: white;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    ccolor: white;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: white;
+}
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    color: white;
+}
+
+.box-content {
+    display: inline-block;
+    padding-right: 4%;
+    padding-left: 4%;
+}
+
+.bottom {
+    border-bottom: 1px solid #f99d1a;
+}
+
+.right {
+    border-right: 1px solid #f99d1a;
+    height: 30%;
+}
+
+@font-face {
+    font-family: "GeogrotesqueBD";
+    src: url(../fonts/GeogrotesqueCompressed/GEOGROTESQUECOMP-BOLDITALIC.OTF);
+}
+
+@font-face {
+    font-family: "GeogrotesqueBK";
+    src: url(../fonts/GeogrotesqueCompressed/GEOGROTESQUECOMP-BOOKITALIC.OTF);
+}
+
+@font-face {
+    font-family: "GeogrotesqueD";
+    src: url(../fonts/GeogrotesqueCompressed/GEOGROTESQUECOMP-DEMIBOLDITAL.OTF);
+}
+
+@font-face {
+    font-family: "SFCompactDisplayL";
+    src: url(../fonts/SFCompactDisplay/SFCompactDisplay-Light.otf);
+}
+
+@font-face {
+    font-family: "SFCompactDisplayR";
+    src: url(../fonts/SFCompactDisplay/SFCompactDisplay-Regular.otf);
+}
+
+@font-face {
+    font-family: "SFCompactDisplayS";
+    src: url(../fonts/SFCompactDisplay/SFCompactDisplay-Semibold.otf);
+}
+
+.foottitle {
+    font-family: SFCompactDisplayS;
+    font-size: 21px;
+    margin: 10px;
+    color: white;
+}
+
+.footdetail {
+    font-family: SFCompactDisplayR;
+    font-size: 21px;
+    margin: 10px;
+    color: #919296;
+}
+
+.rowblue {
+    color: #1b479d;
+    font-family: SFCompactDisplayS;
+    font-size: 20px;
+}
+
+.roworange {
+    color: #f99c19;
+    font-family: SFCompactDisplayS;
+    font-size: 20px;
+}
+
+.whitecurvediv {
+    top: 93.5%;
+    width: 100%;
+    position: absolute;
+    /*   height: 100%;*/
+}
+
+.downloadfont {
+    font-family: SFCompactDisplayS;
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+
+
+/*
+=======================================================
+特效結束
+=======================================================
+ */
+
+
+/*
+=======================================================
+footer
+=======================================================
+ */
+
+.footerStyle {
+    background: url(../images/home/blue_bg.png);
+    padding: 20px 0;
+}
+
+
+/*
+=======================================================
+footer結束
+=======================================================
+ */
+
+
+/*
+=======================================================
 登入的modal
 =======================================================
  */
 
-#login .modal-footer {
-    text-align: left;
-    padding: 0;
-}
-
 .login-facebook {
     width: 100%;
-    padding: 10px 15px;
+    padding: 15px 17px;
     color: #eee;
     margin: 7px 0;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
     cursor: pointer;
 }
 
@@ -270,36 +468,12 @@ a:hover {
     outline: none;
 }
 
-.btn {
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    transition: all .5s;
-}
-
-.btn {
-    width: 100%;
-}
-
 .or {
-    padding: 0 10px;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.outsideOrLine {
-    display: flex;
-    align-items: center;
-    padding-top: 10px;
-}
-
-.outsideOrLine .orLine {
-    flex: 1 0 auto;
-    min-width: 1px;
-}
-
-.orLine {
-    border-top: 1px solid #6b767e;
-    height: 1px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .errorMsg,
@@ -310,37 +484,6 @@ a:hover {
 
 .errorMsg a:hover {
     color: #337ab7;
-}
-
-#firstLabel {
-    margin-top: .5rem;
-}
-
-label {
-    display: inline-block;
-    margin-bottom: .5rem;
-}
-
-.forgetPW {
-    padding: 15px 10px 0 10px;
-    text-align: center;
-}
-
-.forgetPW a {
-    color: #1376d7;
-}
-
-.goSignUp {
-    text-align: center;
-}
-
-.goSignUp a,
-.goLogIn a {
-    color: #1376d7;
-}
-
-.goLogIn {
-    text-align: center;
 }
 
 
@@ -363,80 +506,50 @@ label {
 }
 
 .signUpDone {
-    margin-top: 10px;
+    font-size: 22px;
+    color: green;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.cp-round{
-    width: 24px;
-    height: 24px;
-}
 
-.cp-round:before {
-    width: 24px;
-    height: 24px;
-}
-
-.cp-round:after {
-    width: 24px;
-    height: 24px;
-}
-    /*
+/*
 =======================================================
 註冊的modal
 =======================================================
  */
-    /*
-=======================================================
-輸入個人資料的 modal
-=======================================================
- */
-#uSexBtn {
-    display: flex;
-}
-#uSexBtn label {
-    width: 30%;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-    /*
-=======================================================
-輸入個人資料的 modal
-=======================================================
- */
-    /*
+
+
+/*
 =======================================================
 首頁圖
 =======================================================
  */
+
 .mainBg {
-    background: url(../images/start_bg_web.jpg) center right fixed no-repeat;
+    /* background: url(../video/FDF-Header-Video-BlueOverlay.mp4) center right fixed no-repeat;*/
     -moz-background-size: cover;
     background-size: cover;
     background-position: 40% 70%;
     width: 100%;
-    height: 100%;
+    /*   height: 100%;*/
 }
 
-.mainBgForCoach {
-    background: url(../images/dimon.jpg) center right fixed no-repeat;
-    -moz-background-size: cover;
-    background-size: cover;
-    background-position: 40% 70%;
-    width: 100%;
-    height: 100%;
-}
+
 /*
 =======================================================
 首頁圖
 =======================================================
 */
+
 @media(max-width: 768px) {
     .mainBg {
-        background: url(../images/start_bg_web.jpg) center center fixed no-repeat;
+        /*background: url(../images/start_bg_web.jpg) center center fixed no-repeat;*/
         -moz-background-size: cover;
         background-position: 23%;
         background-size: 178% 100%;
         width: 100%;
-        height: 100%;
+        /*    height: 100%;*/
     }
 }

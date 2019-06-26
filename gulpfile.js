@@ -1,21 +1,22 @@
 var gulp = require("gulp");
 var webserver = require("gulp-webserver");
 var concat = require("gulp-concat"),
-  minifyCSS = require("gulp-minify-css"),
-  uglify = require("gulp-uglify"),
-  rename = require("gulp-rename");
+    minifyCSS = require("gulp-minify-css"),
+    uglify = require("gulp-uglify"),
+    rename = require("gulp-rename");
 
 gulp.task("webserver", function() {
-  gulp.src("./app/").pipe(
-    webserver({
-      port: 8080,
-      livereload: true,
-      directoryListing: false,
-      open: true,
-      fallback: "index.html"
-    })
-  );
+    gulp.src("./app/").pipe(
+        webserver({
+            port: 8080,
+            livereload: true,
+            directoryListing: false,
+            open: true,
+            fallback: "index.html"
+        })
+    );
 });
+
 /*
 gulp.task('concat', function() {
     return gulp.src('./app/css/*.css')

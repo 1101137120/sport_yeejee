@@ -107,7 +107,6 @@ section {
 body {
     line-height: 1;
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
 }
 
 ol,
@@ -254,10 +253,6 @@ a:hover {
     height: auto;
 }
 
-.container-fluid {
-    margin: 30px 0;
-}
-
 
 /*
 =======================================================
@@ -285,11 +280,6 @@ a:hover {
 .showDayMessage .active:hover {
     cursor: pointer;
 }
-
-
-/* #mycanvas {
-    cursor: pointer;
-} */
 
 
 /*
@@ -324,72 +314,7 @@ a:hover {
     padding: 0 50px;
 }
 
-
-/*
-=======================================================
-每日詳細清單畫面
-=======================================================
- */
-
-.nav>li>a:focus,
-.nav>li>a:hover {
-    text-decoration: none;
-    background-color: #6b767e;
-}
-
-.nav-tabs>li>a {
-    color: #000;
-}
-
-.nav-tabs {
-    display: inline-block;
-}
-
-.tab-pane {
-    padding-top: 10px;
-}
-
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
-    color: #888;
-}
-
-#graphdiv {
-    width: 800px !important;
-}
-
-@media (max-width: 1650px) {
-    #graphdiv {
-        width: 700px !important;
-    }
-}
-
-@media (max-width: 1450px) {
-    #graphdiv {
-        width: 600px !important;
-    }
-}
-
-@media (max-width: 1250px) {
-    #graphdiv {
-        width: 550px !important;
-    }
-}
-
-@media (max-width: 1150px) {
-    #graphdiv {
-        width: 500px !important;
-    }
-}
-
-@media (max-width: 1024px) {
-    #graphdiv {
-        width: 450px !important;
-    }
-}
-
-@media (max-width: 768px) {
+@media(max-width: 768px) {
     .showDate,
     #myList {
         font-size: 22px;

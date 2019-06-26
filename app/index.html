@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/csspin-round.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css?20170825">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css?20181112">
+    <style>
+        /*web background*/
+    </style>
+
 </head>
 
 <body onload="checkCookie();">
@@ -18,10 +22,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-xs-12 logoImg">
-                        <!-- <a href="index.html"><img src="images/logo_white.png" alt="首頁logo"></a> -->
+                        <a href="index.html">
+                            <img src="images/home/fdf logo_top.png" alt="首頁logo">
+                        </a>
                         <ul class="navbar-text navbar-right">
-                            <a data-dismiss="modal" data-toggle="modal" href="#login">Login</a>
-                            <li><a data-dismiss="modal" data-toggle="modal" href="#signup">Signup</a></li>
+                            <li>
+                                <a data-dismiss="modal" data-toggle="modal" href="#login">ABOUT</a>
+                            </li>
+                            <li>
+                                <a data-dismiss="modal" data-toggle="modal" href="#signup">HOW IT WORKS</a>
+                            </li>
+                            <li>
+                                <a data-dismiss="modal" data-toggle="modal" href="#FEATURES">FEATURES</a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -34,42 +48,38 @@
 ============================================================================
 -->
     <section>
-        <form role="form" id="userSignUpForm">
+        <form role="form" id="userSignUpForm" method="post">
             <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabelSignUp">
-                <div class="modal-dialog modal-sm">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h2 class="modal-title text-center" id="myModalLabelSignUp">註冊並開始運動吧！</h2>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h2 class="modal-title text-center" id="myModalLabelSignUp">Signup</h2>
                         </div>
                         <div class="modal-body">
-                            <div class="signUpDone text-center"></div>
                             <div class="form-group">
-                                <label for="">email：</label>
-                                <input type="email" class="form-control" name="username" id="username" placeholder="電子郵件" />
+                                <input type="email" class="form-control" name="username" id="username" placeholder="Email" />
                                 <div class="signUpMsg"></div>
                             </div>
                             <div class="form-group">
-                                <label for="">password：</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="密碼" />
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
                             </div>
                             <div class="form-group">
-                                <label for="">retype password：</label>
-                                <input type="password" class="form-control" name="repassword" id="repassword" placeholder="請再輸入一次密碼" />
+                                <input type="password" class="form-control" name="repassword" id="repassword" placeholder="Retype Password" />
                             </div>
                             <div class="form-group">
-                                <label for="">name：</label>
                                 <input type="text" class="form-control" name="userN" id="userN" placeholder="姓名" />
                             </div>
                             <div class="form-group">
-                                <label for="">birthday：</label>
                                 <input type="date" class="form-control" name="userDate" id="userDate" />
+                                <p class="signUpDone"></p>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input id="signUpBtn" class="btn loginColor" type="submit" value="Signup" data-loading-text="Loading...">
-                            <hr>
-                            <div class="goLogIn">已經擁有帳戶？ <a data-dismiss="modal" data-toggle="modal" href="#login">登入</a></div>
+                            <input class="btn btn-block loginColor" type="submit" value="Sign Up">
                         </div>
                     </div>
                 </div>
@@ -85,40 +95,30 @@
     <section>
         <form role="form" id="userLogInForm">
             <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabelLogIn">
-                <div class="modal-dialog modal-sm">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h2 class="modal-title text-center" id="myModalLabelLogIn">登入您的帳戶！</h2>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h2 class="modal-title text-center" id="myModalLabelLogIn">Login</h2>
                         </div>
                         <div class="modal-body">
-                            <!-- <div class="login-facebook text-left">
-                                <i class="fa fa-facebook"></i>
-                                <span>使用 Facebook 繼續</span>
-                            </div>
-                            <div class="outsideOrLine">
-                                <div class="orLine"></div>
-                                <div class="or"> OR </div>
-                                <div class="orLine"></div>
-                            </div> -->
-                            <div class="errorMsg"></div>
                             <div class="form-group">
-                                <label id="firstLabel" for="">email：</label>
-                                <input type="email" class="form-control" name="username" id="userLogInName" placeholder="電子郵件 (abc@sample.com)" />
+                                <input type="email" class="form-control" name="username" id="userLogInName" placeholder="Email" />
+                                <div class="errorMsg"></div>
                             </div>
                             <div class="form-group">
-                                <label for="">password：</label>
-                                <input type="password" class="form-control" name="password" id="userLogInPassword" placeholder="密碼" />
+                                <input type="password" class="form-control" name="password" id="userLogInPassword" placeholder="Password" />
+                                <div class="errorPassword"></div>
                             </div>
                             <div class="modal-footer">
-                                <input id="logInBtn" class="btn loginColor" type="submit" value="Login" data-loading-text="Loading...">
-                                <div class="forgetPW">
-                                    <div>或 <a data-dismiss="modal" data-toggle="modal" href="#forgetPW">忘記密碼</a></div>
-                                </div>
-                                <hr>
-                                <div class="goSignUp">
-                                    <div>還沒有帳戶嗎？ <a data-dismiss="modal" data-toggle="modal" href="#signup">註冊</a>
-                                    </div>
+                                <input class="btn btn-block loginColor" type="submit" value="Log In">
+                                <p class="or"> OR </p>
+                                <div class="login-facebook text-left loginFBStatus">
+                                    <i class="fa fa-facebook"></i>
+                                    <span>login with facebook</span>
                                 </div>
                             </div>
                         </div>
@@ -136,9 +136,13 @@
     <section>
         <form role="form" id="informationForm">
             <div class="modal fade" id="information" tabindex="-1" role="dialog" aria-labelledby="myModalLabelProfile">
-                <div class="modal-dialog modal-sm">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
                             <h2 class="modal-title text-center" id="myModalLabelProfile">Information</h2>
                         </div>
                         <div class="modal-body">
@@ -152,19 +156,20 @@
                                 <input type="number" class="form-control" name="uAge" id="uAge" placeholder="年齡" />
                                 <div class="errorMsg"></div>
                             </div>
-                            <div id="uSexBtn" class="btn-group" data-toggle="buttons">
+                            <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-primary">
-                                <input type="radio" class="form-control uSex" name="uSex" value="M">
-                                Male
-                            </label>
+                                    <input type="radio" class="form-control uSex" name="uSex" value="M"> Male
+                                </label>
                                 <label class="btn btn-primary">
-                                <input type="radio" class="form-control uSex" name="uSex" value="F">
-                                Female
-                            </label>
+                                    <input type="radio" class="form-control uSex" name="uSex" value="F"> Female
+                                </label>
                             </div>
+                            <!-- <div class="form-group">
+                                <input type="date" class="form-control" name="userDate" id="userDate" />
+                            </div> -->
                         </div>
                         <div class="modal-footer">
-                            <input id="informationBtn" class="btn btn-block loginColor" type="submit" value="Save" data-loading-text="Loading...">
+                            <input class="btn btn-block loginColor" type="submit" value="Save">
                         </div>
                     </div>
                 </div>
@@ -176,46 +181,6 @@
 個人資料
 ============================================================================
 -->
-    <!-- 
-============================================================================
-忘記密碼
-============================================================================
--->
-
-    <section>
-        <form role="form" id="forgetPWForm">
-            <div class="modal fade" id="forgetPW" tabindex="-1" role="dialog" aria-labelledby="myModalLabelforgetPW">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h2 class="modal-title text-center" id="myModalLabelforgetPW">忘記密碼</h2>
-                        </div>
-                        <div class="modal-body">
-                            <div id="errorText"></div>
-                            <div class="form-group">
-                                <label for="">電子郵件：</label>
-                                <input type="email" class="form-control" name="forgetUserName" id="forgetUserName" placeholder="abc@sample.com" />
-                            </div>
-                            <div class="showLoader text-center"></div>
-                            <div id="doneText"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <input id="forgetBtn" class="btn btn-block loginColor" type="submit" value="重設密碼" data-loading-text="Loading...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </section>
-
-
-    <!-- 
-============================================================================
-忘記密碼
-============================================================================
--->
-
 
     <!-- 
 ============================================================================
@@ -223,17 +188,300 @@
 ============================================================================
 -->
 
-    <section class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 mainBg"></div>
+    <div class="row">
+        <div class="col-md-12 ">
+            <video id="vid" loop="true" autoplay="autoplay" muted="true" style="width: 100%;">
+                <source type="video/mp4" src="./video/FDF-Header-Video-BlueOverlay.mp4">
+
+                </source>
+            </video>
+            <div class="row whitecurvediv">
+                <img src="./images/home/white_curve.png" style=" width: 100%;">
+            </div>
+            <div class="row" style="top: 20%;width: 100%;position: absolute;">
+                <div class=" col-md-4 col-md-offset-4">
+                    <img src="./images/home/fluid workout_logo.png" style=" width: 100%;">
+                </div>
+            </div>
+            <div class="row" style="top: 35%;width: 100%;position: absolute;">
+                <div class="IndexLogINList col-md-4 col-md-offset-4">
+
+                    <button type="submit" class="btn  btn-block radiusorange-button " id="LogIN">LOGIN</button>
+                    <button type="submit" class="btn  btn-block radiusorange-button LogIN" id="CreateAccount">CREATE
+                        ACCOUNT</button>
+                    <!-- <div class="sssss col-md-12 col-centered" style="visibility: hidden;">
+                                        <h2>Login</h2>
+            
+                                        <div class="login-facebook text-left loginFBStatus radiusFB-button" style="border-radius: 50px; ">
+                                            <i class="fa fa-facebook"></i>
+                                            <span>login with facebook</span>
+                                        </div>
+            
+                                        <p class="or"> OR </p>
+            
+                                        <input type="text" class="form-control radiusB-Text" id="userid" name="userid" placeholder="username">
+            
+                                        <input type="password" class="form-control radiusB-Text" id="password" name="password" placeholder="password">
+                                        <br>
+                                        <button type="submit" class="btn  btn-block radiusorange-button">Login</button>
+                                    </div>-->
+                </div>
+                <div class=" col-md-4 col-md-offset-4">
+                    <div class="downloadfont">
+                        DOWNLOAD THE APP
+                    </div>
+                    <div class="">
+                        <img src="./images/home/download_ios.png" style="width:40%;margin: 2%;">
+                        <img src="./images/home/download_google.png" style="width:45%;margin: 2%;">
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-    </section>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-4" style="padding-top: 50px;"><span class="rowblue">INTERACTIVE FEATURES
+                TO</span> <span class="roworange">REACH YOUR
+                BEST RESULTS</span></div>
+
+
+    </div>
+    <div class="row" style="margin: 100px;">
+
+        <span id="ctup-ads-widget-6" class="">
+            <div class="col-lg-4 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true"
+                data-sr-complete="true">
+
+                <a href="#" class="service-icon">
+                    <span class="sr-only">SET PERSONAL GOALS</span>
+        <i class="pixeden" style="background:url(./images/home/button_set.png) no-repeat center;width:100%; height:100%;background-size: cover;"></i>
+        </a>
+        <h3 class="red-border-bottom">SET PERSONAL GOALS</h3>
+    </div>
+
+    </span>
+    <span id="ctup-ads-widget-3" class="">
+            <div class="col-lg-4 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true"
+                data-sr-complete="true">
+
+                <a href="#" class="service-icon">
+                    <span class="sr-only">
+                        EASY TO USE </span>
+    <i class="pixeden" style="background:url(./images/home/button_easy.png) no-repeat center;width:100%; height:100%;background-size: cover;"></i>
+    </a>
+    <h3 class="red-border-bottom">EASY TO USE</h3>
+    </div>
+
+    </span>
+    <span id="ctup-ads-widget-4" class="">
+            <div class="col-lg-4 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true"
+                data-sr-complete="true">
+
+                <a href="#" class="service-icon">
+                    <span class="sr-only">
+                        NEVER MISS A BEAT </span>
+    <i class="pixeden" style="background:url(./images/home/button_bluetooth.png) no-repeat center;width:100%; height:100%;background-size: cover;"></i>
+    </a>
+    <h3 class="red-border-bottom">NEVER MISS A BEAT</h3>
+    </div>
+    </span>
+    <span id="ctup-ads-widget-4" class="">
+            <div class="col-lg-4 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true"
+                data-sr-complete="true">
+
+                <a href="#" class="service-icon">
+                    <span class="sr-only">
+                        PRODUCT FRIENDLY</span>
+    <i class="pixeden" style="background:url(./images/home/button_product.png) no-repeat center;width:100%; height:100%;background-size: cover;"></i>
+    </a>
+    <h3 class="red-border-bottom">PRODUCT FRIENDLY</h3>
+
+    </div>
+    </span>
+    <span id="ctup-ads-widget-4" class="">
+            <div class="col-lg-4 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true"
+                data-sr-complete="true">
+
+                <a href="#" class="service-icon">
+                    <span class="sr-only">
+                        SHARE WITH YOUR CONNECTIONS</span>
+    <i class="pixeden" style="background:url(./images/home/button_share.png) no-repeat center;width:100%; height:100%;background-size: cover;"></i>
+    </a>
+    <h3 class="red-border-bottom">SHARE WITH YOUR CONNECTIONS</h3>
+    </div>
+    </span>
+    <span id="ctup-ads-widget-4" class="">
+            <div class="col-lg-4 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true"
+                data-sr-complete="true">
+
+                <a href="#" class="service-icon">
+                    <span class="sr-only">
+                        TRACK YOUR PROGRESS</span>
+    <i class="pixeden" style="background:url(./images/home/button_track.png) no-repeat center;width:100%; height:100%;background-size: cover;"></i>
+    </a>
+    <h3 class="red-border-bottom">TRACK YOUR PROGRESS</h3>
+    </div>
+    </span>
+    </div>
+    <div class="row">
+        <img src="./images/home/omega_ad.png" style="width:100%;">
+    </div>
+    <div class="footerStyle">
+        <footer class="">
+            <div class="row">
+                <div class="col-md-1 col-xs-6">
+                </div>
+                <div class="col-md-2 col-xs-12 right">
+                    <img src="./images/home/fdf logo_down.png" style="width: 100%;display: block;margin:auto;vertical-align: middle;position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto;padding-right: 10%;padding-left: 10%;">
+                </div>
+                <div class="col-md-2 col-xs-12 box-content right">
+                    <h2 class="foottitle">
+                        ABOUT
+                    </h2>
+                    <div class="footdetail">
+                        About
+                    </div>
+                    <div class="footdetail">
+                        How it Works
+                    </div>
+                    <div class="footdetail">
+                        Features
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12 box-content right">
+                    <div class="foottitle">
+                        SUPPORT
+                    </div>
+                    <div class="footdetail">
+                        Support Centre
+                    </div>
+                    <div class="footdetail">
+                        FAQ's
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12 box-content right">
+                    <div class="foottitle">
+                        CORPORATE
+                    </div>
+                    <div class="footdetail">
+                        About us
+                    </div>
+                    <div class="footdetail">
+                        News
+                    </div>
+                    <div class="footdetail">
+                        Find a Retailer
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="footdetail">
+                        GETSOCIAL
+                    </div>
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-facebook-f" style="color:#f99d1b ;   margin: 10px;"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-twitter" style="color:#f99d1b;     margin: 10px;"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-linkedin-in" style="color:#f99d1b ;    margin: 10px;"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-instagram" style="color:#f99d1b ;    margin: 10px;"></i>
+                    </a>
+
+
+
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-youtube" style="color:#f99d1b  ;   margin: 10px;"></i>
+                    </a>
+                </div>
+                <div class="col-md-1 col-xs-12">
+
+
+                </div>
+            </div>
+            <div class="row" style="margin: 50px; ">
+                <img src="./images/home/fdf logo_down2.png" style="width: 100%;display: block;margin:auto;">
+            </div>
+            <!--  <div class="col-md-2 col-xs-12">
+                        <a href="tel:02-82218800">
+                            <img src="./images/phoneIcon.png" alt="">
+                        </a>
+                        <p>
+                            02-82218800
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <a href="https://www.google.ch/maps/place/235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%9D%BF%E5%8D%97%E8%B7%AF671%E8%99%9F/@25.0080119,121.4814703,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a82933ab8c75:0x372cb8324f7a2117!8m2!3d25.0080119!4d121.483659"
+                            target="_blank">
+                            <img src="./images/addressIcon.png" alt="">
+                        </a>
+                        <p>6F,NO.671, Bannan Rd.,Zhonghe Dist.,New Taipei City, Taiwan</p>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <a href="mailto:service@smartchip.com.tw">
+                            <img src="./images/emailIcon.png" alt="">
+                        </a>
+                        <p>service@smartchip.com.tw</p>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="otherBtn">
+                        <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                            <img src="./images/youtubeIcon.png" alt="">
+                        </a>
+                        <a href="https://www.facebook.com/%E7%91%9E%E6%96%B0%E9%9B%BB%E5%AD%90%E5%85%AC%E5%8F%B8-SMC-266009596835522/" target="_blank">
+                            <img src="./images/facebookIcon.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12 copyRightText">
+                    <p>Copyright © 2015 - 2017 SMARTCHIP</p>
+                </div>
+            -->
+        </footer>
+    </div>
+    <script>
+        // This is called with the results from from FB.getLoginStatus().
+
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        /*  function checkLoginState() {
+              FB.getLoginStatus(function(response) {
+                  statusChangeCallback(response);
+              });
+          }*/
+
+
+
+        /*  // Load the SDK asynchronously
+          (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://connect.facebook.net/en_US/sdk.js";
+              fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));*/
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+    </script>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="js/index.js?20170825"></script>
+    <script src="js/index.js?20181109-1"></script>
     <script src="js/jquery.cookie.js"></script>
     <script src="js/Chart.min.js"></script>
-    <script src="js/parsley.min.js"></script>
+    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
+
 </body>
 
 </html>

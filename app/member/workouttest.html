@@ -1,0 +1,542 @@
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="application/x-www-form-urlencoded; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>運動平台</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/Workouttest.css?20181121-2">
+
+    <style>
+        /*web background*/
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 logoImg">
+                        <a href="index.html">
+                            <img src="../images/home/fdf logo_top.png" alt="首頁logo">
+                        </a>
+                        <ul class="navbar-text navbar-right">
+                            <li>
+                                <a data-dismiss="modal" data-toggle="modal" href="#login">ABOUT</a>
+                            </li>
+                            <li>
+                                <a data-dismiss="modal" data-toggle="modal" href="#signup">HOW IT WORKS</a>
+                            </li>
+                            <li>
+                                <a data-dismiss="modal" data-toggle="modal" href="#FEATURES">FEATURES</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- 
+============================================================================
+刪除Modal
+============================================================================
+-->
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-contenttranlate">
+                <div class="modal-headertranlate">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-bodytranlate" style="text-align: center;">
+                    <div class="modal-dialog-Cdiv1">ARE YOU SURE YOU WANT TO</div>
+                    <div class="modal-dialog-Cdiv2">DELETE THIS WORKOOUT</div>
+                </div>
+                <div class="modal-footertranlate">
+                    <div class="row">
+                        <button type="button" class="btn btn-orangeW buttonGroupInfo" data-dismiss="modal">CANCEL</button>
+                        <button type="button" class="btn btn-redW buttonGroupInfo">DELETE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 
+============================================================================
+主畫面的圖片
+============================================================================
+-->
+    <div class="row" style="background: url(../images/home/blue_bg.png);">
+
+        <div class="container">
+
+            <div class=" col-md-12 col-xs-12 ">
+                <div class="col-md-6 col-xs-12" style="padding-top: 8%;"><span class="rowwhite">ADD A
+                    </span> <span class="roworange">FLUIDWORKOUT</span></div>
+                <div class="col-md-6 col-=xs-12" style="padding-top: 8%;">
+                    <div class="btn-group" data-toggle="buttons" style="width: 100%;">
+                        <button id="garbaButton" class="btn btn-redW active buttonGroupInfo pull-right" style="width: 100px;height: 40px;padding: 0px;">
+                            <img src="../images/member/delete_icon_w.png" width="30" height="30" alt="submit" />
+                        </button>
+                        <button class="btn btn-orangeW buttonGroupInfo pull-right" style="width: 100px;height: 40px;">Back
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-12 col-=xs-12 box-content  bottom" style="margin-top: 20px;    margin-bottom: 30px;">
+
+                </div>
+            </div>
+            <form>
+                <div class="form-row col-md-12">
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-6 TextboxTitle">
+                            Select Row Type
+                        </div>
+                        <div class="form-group col-md-3 TextboxTitle pull-right">
+                            Row Target
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+
+                        <div class='col-md-12 col-xs-12 ' style="text-align: center;">
+                            <div class='btn-group' data-toggle='buttons' style="width: 100%;">
+                                <label class='btn btn-orange active buttonGroupInfo'>
+                                    <input type='radio' name='options' id='option1' autocomplete='off' value='all'> ALL
+                                </label>
+                                <label class='btn btn-orange buttonGroupInfo'>
+                                    <input type='radio' name='options' id='option2' autocomplete='off' value='0'> Just
+                                    Now
+                                </label>
+                                <label class='btn btn-orange buttonGroupInfo'>
+                                    <input type='radio' name='options' id='option3' autocomplete='off' value='1'> Time
+                                </label>
+                                <label class='btn btn-orange buttonGroupInfo'>
+                                    <input type='radio' name='options' id='option3' autocomplete='off' value='2'>
+                                    Distance
+                                </label>
+                                <label class='btn btn-orange buttonGroupInfo'>
+                                    <input type='radio' name='options' id='option3' autocomplete='off' value='3'>
+                                    Calorie
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 pull-right">
+                        <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="Target">
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-row col-md-6">
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-6 TextboxTitle">
+                            Date
+                        </div>
+                        <div class="form-group col-md-6 TextboxTitle">
+                            Time of Date
+                        </div>
+                    </div>
+                    <div class='col-md-12 col-xs-12 ' style="text-align: center;">
+                        <div class="form-group col-md-6 ">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control Textbox" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="Target">
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="form-row col-md-12">
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-6 TextboxTitle">
+                            Series
+                        </div>
+                        <div class="form-group col-md-6 TextboxTitle">
+                            Product
+                        </div>
+                    </div>
+                    <div class='col-md-12 col-xs-12 ' style="text-align: center;">
+                        <div class="form-group col-md-6 ">
+                            <select class="form-control selectT" id="sel1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <select class="form-control selectT" id="sel2">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row col-md-12">
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Distance
+                        </div>
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Time
+                        </div>
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Calories
+                        </div>
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Average Pace
+                        </div>
+                    </div>
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Total distance covered
+                        </div>
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Total time elapsed
+                        </div>
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Total calories burned
+                        </div>
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Average 500m Pace
+                        </div>
+                    </div>
+                    <div class='col-md-12 col-xs-12 ' style="text-align: center;">
+                        <div class="form-group col-md-3 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="m">
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder=".0">
+
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="kcal">
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="/500m">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row col-md-12">
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Pulse
+                        </div>
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Strokes
+                        </div>
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Power
+                        </div>
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Resistance
+                        </div>
+                    </div>
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Beats per min
+                        </div>
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Strokes per min
+                        </div>
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Average power
+                        </div>
+                        <div class="form-group col-md-3 TextboxDetail">
+                            Tank Resistance Level
+                        </div>
+                    </div>
+                    <div class='col-md-12 col-xs-12 ' style="text-align: center;">
+                        <div class="form-group col-md-3 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="bpm">
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="spm">
+
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            <input type="text" class="form-control Textbox" id="inputPassword4" placeholder="watt">
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            <div class="form-control Textbox" style=" 
+                            padding: 0px;">
+                                <div class="col-md-6 ResistanceBottonClick">5</div>
+                                <div class="col-md-6 ResistanceBotton">10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-row col-md-12">
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-3 TextboxTitle">
+                            Target Reached ?
+                        </div>
+                    </div>
+                    <div class='col-md-12 col-xs-12 ' style="">
+                        <div class="form-group col-md-3 ">
+                            <div class="radio radio-primary">
+                                <input type="radio" name="radio1" id="otp" value="otp" data-value="otp" class="radio_val">
+                                <label for="otp">
+                                    Completed
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            <div class="radio radio-primary">
+                                <input type="radio" name="radio1" id="otp1" value="otp1" data-value="otp1" class="radio_val">
+                                <label for="otp1">
+
+                                    Failed
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+            <div class=" col-md-offset-4 col-md-4" style="">
+                <div class=" col-md-12" data-toggle="buttons" style="text-align: center;">
+                    <button class="btn SaveChangesButton buttonGroupInfo">SAVECHANGES
+                    </button>
+                </div>
+            </div>
+
+            <div class=" col-md-12 col-xs-12" style="">
+
+                <div class="row rowtop" style="z-index: 1;">
+                    <div class=" col-md-4 col-xs-12">
+                        <div class="totalbg">
+                            <div class="totalTitle"><span class="" style="color: #ffffff;">TOTAL</span><span class="" style="color: #f99d1a;">
+                                    DISTANCE ROWED</span></div>
+                            <div class="totalValue"><span class="">26563</span><span class="">m</span></div>
+                        </div>
+
+                    </div>
+                    <div class=" col-md-4 col-xs-12">
+                        <div class="totalbg">
+                            <div class="totalTitle"><span class="" style="color: #ffffff;">TOTAL</span><span class="" style="color: #f99d1a;">
+                                    TIME ROWED</span></div>
+                            <div class="totalValue"><span class="">26563</span><span class="">m</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="totalbg">
+                            <div class="totalTitle"><span class="" style="color: #ffffff;">TOTAL</span><span class="" style="color: #f99d1a;">
+                                    CALORIES BURNED</span></div>
+                            <div class="totalValue"><span class="">26563</span><span class="">m</span></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="whitecurvediv" style=" position: sticky;">
+            <img src="../images/home/white_curve.png" style=" width: 100%;">
+        </div>
+    </div>
+    <div class="footerStyle rowtop">
+
+        <footer class="">
+            <div class="row">
+                <div class="col-md-1 col-xs-6">
+                </div>
+                <div class="col-md-2 col-xs-12 right">
+                    <img src="../images/home/fdf logo_down.png" style="width: 100%;display: block;margin:auto;vertical-align: middle;position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto;padding-right: 10%;padding-left: 10%;">
+                </div>
+                <div class="col-md-2 col-xs-12 box-content right">
+                    <h2 class="foottitle">
+                        ABOUT
+                    </h2>
+                    <div class="footdetail">
+                        About
+                    </div>
+                    <div class="footdetail">
+                        How it Works
+                    </div>
+                    <div class="footdetail">
+                        Features
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12 box-content right">
+                    <div class="foottitle">
+                        SUPPORT
+                    </div>
+                    <div class="footdetail">
+                        Support Centre
+                    </div>
+                    <div class="footdetail">
+                        FAQ's
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12 box-content right">
+                    <div class="foottitle">
+                        CORPORATE
+                    </div>
+                    <div class="footdetail">
+                        About us
+                    </div>
+                    <div class="footdetail">
+                        News
+                    </div>
+                    <div class="footdetail">
+                        Find a Retailer
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="footdetail">
+                        GETSOCIAL
+                    </div>
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-facebook-f" style="color:#f99d1b ;   margin: 10px;"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-twitter" style="color:#f99d1b;     margin: 10px;"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-linkedin-in" style="color:#f99d1b ;    margin: 10px;"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-instagram" style="color:#f99d1b ;    margin: 10px;"></i>
+                    </a>
+
+
+
+
+                    <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                        <i class="fab fa-youtube" style="color:#f99d1b  ;   margin: 10px;"></i>
+                    </a>
+                </div>
+                <div class="col-md-1 col-xs-12">
+
+
+                </div>
+            </div>
+            <div class="row" style="margin: 50px; ">
+                <img src="../images/home/fdf logo_down2.png" style="width: 100%;display: block;margin:auto;">
+            </div>
+            <!--  <div class="col-md-2 col-xs-12">
+                        <a href="tel:02-82218800">
+                            <img src="./images/phoneIcon.png" alt="">
+                        </a>
+                        <p>
+                            02-82218800
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <a href="https://www.google.ch/maps/place/235%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%9D%BF%E5%8D%97%E8%B7%AF671%E8%99%9F/@25.0080119,121.4814703,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a82933ab8c75:0x372cb8324f7a2117!8m2!3d25.0080119!4d121.483659"
+                            target="_blank">
+                            <img src="./images/addressIcon.png" alt="">
+                        </a>
+                        <p>6F,NO.671, Bannan Rd.,Zhonghe Dist.,New Taipei City, Taiwan</p>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <a href="mailto:service@smartchip.com.tw">
+                            <img src="./images/emailIcon.png" alt="">
+                        </a>
+                        <p>service@smartchip.com.tw</p>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="otherBtn">
+                        <a href="https://www.youtube.com/channel/UCvEzxBir4iGo-KIFosO0Bmg" target="_blank">
+                            <img src="./images/youtubeIcon.png" alt="">
+                        </a>
+                        <a href="https://www.facebook.com/%E7%91%9E%E6%96%B0%E9%9B%BB%E5%AD%90%E5%85%AC%E5%8F%B8-SMC-266009596835522/" target="_blank">
+                            <img src="./images/facebookIcon.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12 copyRightText">
+                    <p>Copyright © 2015 - 2017 SMARTCHIP</p>
+                </div>
+            -->
+        </footer>
+    </div>
+    <script>
+        // This is called with the results from from FB.getLoginStatus().
+
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        /*  function checkLoginState() {
+              FB.getLoginStatus(function(response) {
+                  statusChangeCallback(response);
+              });
+          }*/
+
+
+
+        /*  // Load the SDK asynchronously
+          (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://connect.facebook.net/en_US/sdk.js";
+              fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));*/
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+    </script>
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/Workouttest.js?201811116"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script type="text/javascript" src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+</body>
+
+</html>
